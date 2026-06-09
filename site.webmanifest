@@ -1,0 +1,16 @@
+{
+  "name": "Akash Kumar — Field Notes",
+  "short_name": "Akash Kumar",
+  "description": "Operator moving toward project management. Operations in a Founder's Office; built and killed a startup on purpose.",
+  "lang": "en",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F7F6F1",
+  "theme_color": "#1B1D24",
+  "icons": [
+    { "src": "assets/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" },
+    { "src": "assets/favicon.png", "type": "image/png", "sizes": "512x512", "purpose": "any" },
+    { "src": "assets/apple-touch-icon.png", "type": "image/png", "sizes": "180x180", "purpose": "maskable" }
+  ]
+}

@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+# Reference / provenance files — not part of the live site, kept out of search.
+Disallow: /reference.html
+Disallow: /design-directions.html
+Disallow: /design-directions-2.html
+
+# DOMAIN: update this line when you set your real domain (see README "Set your domain").
+Sitemap: https://akashkumar.netlify.app/sitemap.xml

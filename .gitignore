@@ -1,0 +1,34 @@
+# OS cruft
+Thumbs.db
+ehthumbs.db
+.DS_Store
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Scratch / temp (build artifacts that are NOT part of the site)
+_smoke*.png
+_smoketest.html
+_qa*.html
+.asset-tmp/
+*.tmp
+*.log
+qa-*.png
+# Dropped source image(s) (e.g. the original photo) — not part of the deployed site
+file_*.png
+
+# If Node tooling is ever added later
+node_modules/
+
+# Generated deploy folder (created for Netlify Drop — not source)
+dist/
+
+# Generated design previews (not the live page)
+__dark-preview.html
+
+# NOTE: generated site assets (assets/og-image.png, assets/favicon*, assets/fonts/*.woff2,
+# apple-touch-icon.png, akash.jpg) ARE committed on purpose — they are part of the deployable site.

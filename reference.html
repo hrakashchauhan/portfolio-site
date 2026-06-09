@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Akash Kumar — Field Notes</title>
+<meta name="description" content="Akash Kumar — I thought I'd build startups, then realised I first needed to understand how companies actually work. Now learning project management and operations from inside a Founder's Office while studying AI & Data Science. Ex-founder (Jeevan Jhola)." />
+<meta name="author" content="Akash Kumar" />
+<link rel="canonical" href="https://www.akashkumar.example/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Akash Kumar — Field Notes" />
+<meta property="og:description" content="I started a company, tested it against reality, shut it down, and joined a Founder's Office to learn how decisions, operations and execution really happen." />
+<meta property="og:url" content="https://www.akashkumar.example/" />
+<meta property="og:image" content="https://www.akashkumar.example/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://www.akashkumar.example/og-image.png" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Person","name":"Akash Kumar",
+  "url":"https://www.akashkumar.example/",
+  "jobTitle":"Founder's Office Intern · Operations, Execution & Project Management",
+  "description":"AI & Data Science undergrad learning project management, operations and execution by working on real problems. Ex-founder (Jeevan Jhola).",
+  "address":{"@type":"PostalAddress","addressRegion":"Kerala","addressCountry":"India"},
+  "alumniOf":"APJ Abdul Kalam Technological University",
+  "knowsAbout":["Project Management","Operations","Execution","Stakeholder Coordination","Prioritization","Team Leadership","Python","NLP"],
+  "sameAs":["https://www.linkedin.com/in/youfoundakash","https://github.com/hrakashchauhan"]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --paper:#F7F6F1; --ink:#1B1D24; --ink-soft:#6E6E72; --rule:#E4E1D6;
+  --pen:#2B3A87; --pen-press:#1C285F; --hl:rgba(247,212,84,.55);
+  --red:#B23A2E; --green:#2E7D4F;
+  --margin:148px; --read:660px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{
+  background:var(--paper);
+  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 31px,var(--rule) 31px,var(--rule) 32px);
+  background-attachment:local;
+  color:var(--ink);
+  font-family:"Newsreader",Georgia,serif;
+  font-size:clamp(1.06rem,1.3vw,1.22rem);
+  line-height:32px;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+::selection{background:var(--hl);color:var(--ink)}
+a{color:var(--pen);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2.5px solid var(--pen);outline-offset:3px}
+.mono{font-family:"IBM Plex Mono",monospace}
+.skip{position:absolute;left:-9999px;background:var(--ink);color:var(--paper);padding:.5rem .9rem;z-index:50}
+.skip:focus{left:8px;top:8px}
+.wrap{max-width:calc(var(--margin) + var(--read) + 210px);margin:0 auto;padding:0 clamp(20px,5vw,56px)}
+
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:28px 0 8px;flex-wrap:wrap}
+.top__name{font-family:"IBM Plex Mono",monospace;font-size:.82rem;font-weight:600;letter-spacing:.04em}
+.top a{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--ink-soft);text-decoration:none}
+.top a:hover{color:var(--pen);text-decoration:underline}
+
+.entry{display:grid;grid-template-columns:var(--margin) minmax(0,var(--read));gap:10px 34px;padding:22px 0;align-items:start}
+.entry + .entry{border-top:1px solid var(--rule)}
+.margin{text-align:right;padding-top:6px}
+.date{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--ink-soft);letter-spacing:.02em;display:block}
+.note{font-family:"IBM Plex Mono",monospace;font-size:.74rem;color:var(--ink-soft);line-height:1.45;display:block;margin-top:.8rem}
+.note--quote{margin-top:1.2rem;color:var(--ink);border-top:1px solid var(--rule);padding-top:.8rem}
+.note--quote span{display:block;color:var(--ink-soft);margin-top:.35rem;font-size:.68rem}
+
+.body > * + *{margin-top:1.05rem}
+.body p{max-width:60ch}
+.label{grid-column:1 / -1;font-family:"IBM Plex Mono",monospace;font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);padding-top:2px}
+
+.lede{font-size:clamp(1.32rem,2.5vw,1.82rem);line-height:1.35;font-weight:400}
+.lede .small{display:block;font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1.5rem}
+.lede .sub{font-size:1.06rem;line-height:1.5;max-width:54ch;margin-top:1.3rem}
+.readon{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--ink-soft);text-decoration:none;display:inline-block;margin-top:1.5rem}
+.readon:hover{color:var(--pen)}
+
+.hl{background-image:linear-gradient(180deg,transparent 14%,var(--hl) 14%,var(--hl) 86%,transparent 86%);background-repeat:no-repeat;background-position:0 0;background-size:100% 100%;padding:0 .08em}
+@media (prefers-reduced-motion:no-preference){
+  .hl{background-size:0% 100%;transition:background-size .7s cubic-bezier(.2,.7,.3,1) .15s}
+  .in .hl,.lede .hl{background-size:100% 100%}
+}
+
+/* taped-in photo */
+.photo{background:#fff;padding:7px 7px 26px;border:1px solid var(--rule);box-shadow:0 3px 10px rgba(0,0,0,.09);transform:rotate(-2.4deg);width:120px;margin-left:auto}
+.photo img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;background:#E9E7DF}
+.photo .ph{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;background:#ECEAE1;color:var(--ink-soft);font-family:"IBM Plex Mono",monospace;font-size:.58rem;text-align:center;padding:8px;line-height:1.5}
+.photo figcaption{font-family:"IBM Plex Mono",monospace;font-size:.62rem;color:var(--ink-soft);text-align:center;padding-top:8px}
+
+/* story arc line */
+.arc{font-family:"IBM Plex Mono",monospace;font-size:.84rem;color:var(--ink-soft);line-height:2;margin-top:.4rem}
+.arc b{color:var(--ink);font-weight:600}
+
+/* generic notebook lists */
+.list{list-style:none}
+.list li{padding:.6rem 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:auto 1fr;gap:.9rem;align-items:baseline}
+.list li:first-child{border-top:none}
+.list .k{font-family:"IBM Plex Mono",monospace;font-size:.66rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green);white-space:nowrap}
+.list .v{max-width:54ch}
+.list .v b{font-weight:600}
+.list .v span{color:var(--ink-soft)}
+
+/* What I bring — scannable capability grid */
+.brings{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0 2.4rem;margin-top:.4rem;max-width:60ch}
+.brings li{padding:.55rem 0;border-top:1px solid var(--rule);font-weight:500;display:flex;gap:.7rem;align-items:baseline}
+.brings li::before{content:"›";color:var(--pen);font-weight:700}
+
+/* Things I've actually done — checkable scan list */
+.did{list-style:none;max-width:60ch}
+.did li{padding:.5rem 0 .5rem 1.7rem;border-top:1px solid var(--rule);position:relative}
+.did li:first-child{border-top:none}
+.did li::before{content:"\2713";position:absolute;left:0;top:.6rem;color:var(--green);font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:.8rem}
+
+/* Field notes — the signature */
+.fnotes{display:flex;flex-direction:column}
+.fnote{display:grid;grid-template-columns:auto 1fr;gap:1.1rem;padding:1rem 0;border-top:1px solid var(--rule);align-items:baseline}
+.fnote:first-child{border-top:none}
+.fnote .n{font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:600;color:var(--pen);white-space:nowrap;letter-spacing:.04em}
+.fnote p{font-size:1.12rem;max-width:52ch;margin:0;line-height:1.42}
+
+/* metric strip + honest fill slot */
+.stats{font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--ink);display:flex;flex-wrap:wrap;gap:.4rem 1rem;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:.7rem 0}
+.stats b{color:var(--pen);font-weight:600}
+.fill{color:var(--ink-soft);border-bottom:1px dotted var(--ink-soft);padding:0 .25rem}
+
+/* working principles (numbered) */
+.principles{list-style:none;counter-reset:p;max-width:60ch}
+.principles li{counter-increment:p;position:relative;padding:.6rem 0 .6rem 2.3rem;border-top:1px solid var(--rule)}
+.principles li:first-child{border-top:none}
+.principles li::before{content:counter(p,decimal-leading-zero);position:absolute;left:0;top:.65rem;font-family:"IBM Plex Mono",monospace;font-size:.74rem;color:var(--pen);font-weight:600}
+.principles b{font-weight:600}
+.principles span{color:var(--ink-soft)}
+
+.tag{font-family:"IBM Plex Mono",monospace;font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;display:inline-block;margin-top:.5rem}
+.tag::before{content:"[ "}.tag::after{content:" ]"}
+.tag-kill{color:var(--red)}.tag-live{color:var(--green)}.tag-ship{color:var(--pen)}
+
+.qs{max-width:62ch}.qs p{margin-top:.9rem}.qs p:first-child{margin-top:0}
+
+/* looking-for block */
+.lf{font-family:"IBM Plex Mono",monospace;font-size:.86rem;line-height:1.5;margin-top:.8rem;border-top:1px solid var(--rule)}
+.lf div{display:grid;grid-template-columns:120px 1fr;gap:1rem;padding:.55rem 0;border-bottom:1px solid var(--rule)}
+.lf .k{color:var(--ink-soft)}
+.lf .v{color:var(--ink)}
+
+.reach .links{margin-top:1.1rem;line-height:2.2;font-family:"IBM Plex Mono",monospace;font-size:.9rem}
+.reach .links a{display:inline-block;margin-right:1.4rem}
+
+/* testimonials */
+.say{border-left:2px solid var(--pen);padding:.15rem 0 .15rem 1.1rem;max-width:60ch}
+.say + .say{margin-top:1.4rem}
+.say p{font-size:1.15rem;font-style:italic;line-height:1.42}
+.say cite{display:block;font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-style:normal;color:var(--ink-soft);margin-top:.55rem}
+
+.signoff{padding:28px 0 56px;border-top:1px solid var(--rule);margin-top:6px}
+.signoff .grid{display:grid;grid-template-columns:var(--margin) minmax(0,var(--read));gap:34px}
+.sig{font-style:italic;font-size:1.15rem}
+.fineprint{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--ink-soft);margin-top:.6rem}
+
+.rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+@media (max-width:780px){
+  .entry,.signoff .grid{grid-template-columns:1fr;gap:12px}
+  .margin{text-align:left;order:-1;padding-top:0;display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;align-items:center}
+  .note{margin-top:0}
+  .note--quote{border-top:none;padding-top:0;margin-top:.4rem;width:100%}
+  .photo{margin-left:0;transform:rotate(-1.6deg)}
+  .brings{grid-template-columns:1fr}
+  .lf div{grid-template-columns:104px 1fr;gap:.7rem}
+}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#open">Skip to content</a>
+<div class="wrap">
+
+  <header class="top">
+    <span class="top__name mono">Akash Kumar &nbsp;/&nbsp; field notes</span>
+    <a href="#reach">↓ get in touch</a>
+  </header>
+
+  <main>
+
+    <!-- 1 · HERO -->
+    <section class="entry" id="open">
+      <div class="margin">
+        <figure class="photo">
+          <!-- Add your photo: save a candid shot (office / notebook in hand — NOT a studio headshot)
+               next to this file as akash.jpg, then replace the div below with:
+               <img src="akash.jpg" alt="Akash Kumar" /> -->
+          <div class="ph"><span style="font-family:'Newsreader',serif;font-size:2.5rem;font-weight:600;color:var(--ink-soft);line-height:1">ak</span></div>
+          <figcaption>me, lately</figcaption>
+        </figure>
+      </div>
+      <div class="body lede">
+        <span class="small">Akash Kumar · Kerala, India · June 2026</span>
+        I thought I wanted to build startups. Then I realised I first needed to understand <span class="hl">how companies actually work.</span>
+        <p class="sub">So I started something, tested it against reality, shut it down, and joined a company to see how decisions, operations and execution really happen. Now I work in operations inside a Founder's Office and I'm building toward project management — while studying AI &amp; Data Science.</p>
+        <a class="readon" href="#bring">↓ read on</a>
+      </div>
+    </section>
+
+    <!-- 2 · WHAT I BRING -->
+    <section class="entry rv" id="bring">
+      <span class="label">What I bring</span>
+      <div class="margin"><span class="note">what I can<br>actually help<br>with.</span></div>
+      <div class="body">
+        <ul class="brings">
+          <li>Project coordination</li>
+          <li>Team leadership</li>
+          <li>Operations &amp; execution</li>
+          <li>Stakeholder communication</li>
+          <li>Prioritisation &amp; decision-making</li>
+          <li>Process documentation</li>
+          <li>AI &amp; Data Science foundation</li>
+          <li>Building &amp; learning in public</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3 · MY STORY -->
+    <section class="entry rv" id="story">
+      <span class="label">My story</span>
+      <div class="margin"><span class="note">the whole thing,<br>in five moves.</span></div>
+      <div class="body">
+        <p style="font-size:1.2rem;font-weight:500;line-height:1.32">I thought I wanted to build startups. Then I realised I first wanted to understand how companies actually work.</p>
+        <p>So I built one — and learned more from watching it meet reality than I expected to. Then, instead of forcing it, I went inside a real company to see how things actually run when resources are finite and the clock is always going.</p>
+        <p class="arc"><b>started something</b> → <b>tested it against reality</b> → <b>shut it down</b> → <b>joined a company</b> → <span class="hl">learning how businesses really run</span></p>
+      </div>
+    </section>
+
+    <!-- 4 · CURRENT EXPERIMENTS -->
+    <section class="entry rv" id="now">
+      <span class="label">Current experiments</span>
+      <div class="margin"><span class="note">live. updated as<br>they change.</span></div>
+      <div class="body">
+        <ul class="list">
+          <li><span class="k">Live</span><span class="v"><b>Founder's Office internship</b> @ One Source International — learning operations and execution from the inside.</span></li>
+          <li><span class="k">Live</span><span class="v"><b>Project management, properly</b> — Google PM certification, pressure-tested against real work.</span></li>
+          <li><span class="k">Live</span><span class="v"><b>Building in public</b> — writing what I learn on LinkedIn, in real time.</span></li>
+          <li><span class="k">Live</span><span class="v"><b>Studying how real businesses operate</b> — up close, not from case studies.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 5 · THINGS I'VE ACTUALLY DONE -->
+    <section class="entry rv" id="done">
+      <span class="label">Things I've actually done</span>
+      <div class="margin"><span class="note">scan, don't<br>read.</span></div>
+      <div class="body">
+        <ul class="did">
+          <li>Built <b>Jeevan Jhola</b> — a venture, from zero to a real market pilot</li>
+          <li>Recruited, led and coordinated a team of interns</li>
+          <li>Ran recruitment &amp; onboarding as an HR intern</li>
+          <li>Built NLP misinformation models in Python (IIIT Kottayam)</li>
+          <li>Currently inside a Founder's Office, doing real operations</li>
+          <li>Documenting business observations publicly, every week</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6 · SELECTED WORK -->
+    <section class="entry rv" id="work">
+      <span class="label">Selected work</span>
+      <div class="margin">
+        <span class="date">Apr–Jul 2025</span>
+        <span class="note">the one I'm proudest<br>of — because I'm the<br>one who ended it.</span>
+      </div>
+      <div class="body">
+        <p style="font-size:1.22rem;font-weight:500;line-height:1.3">Jeevan Jhola — I built a company, then shut it down.</p>
+        <p>Reusable bags you take from anywhere and return anywhere. I recruited and led the team, planned the rollout, ran the day-to-day operations, and tested it with real users in the market.</p>
+        <p class="stats"><b>Led:</b> a team of interns &nbsp;·&nbsp; <b>Ran:</b> a real market pilot &nbsp;·&nbsp; <b>Gathered:</b> direct user feedback</p>
+        <!-- OPTIONAL UPGRADE — when you have the real figures, swap the line above for something like:
+             <b>Led:</b> 6 interns · <b>User interactions:</b> 20+ · <b>Pilot:</b> 8 weeks
+             Real numbers add credibility. Only ever put true ones here. -->
+
+        <p><b>What I handled:</b> recruiting and coordinating the team, prioritising what to build first, communicating the plan, and making the calls — including the hard one.</p>
+        <p>Reality's answer: people agreed it was a good idea, then kept using whatever was already in their hand. The blocker was human habit, not the product. So I made the decision to stop — not because it was hard, but because it wasn't working. Building was the easy part. Deciding was the hard part.</p>
+        <span class="tag tag-kill">Killed · on purpose</span>
+      </div>
+    </section>
+
+    <section class="entry rv">
+      <div class="margin"><span class="date">2026 — now</span><span class="note">future PM in<br>training.</span></div>
+      <div class="body">
+        <p style="font-size:1.22rem;font-weight:500;line-height:1.3">Inside a Founder's Office, learning how a company really runs.</p>
+        <p>At <b>One Source International</b>, I keep operations moving on the ground — <b>tracking and reconciling stock, catching gaps before they grow, and supporting the team's day-to-day execution</b> — while sitting in on how decisions get made and how priorities shift across the business.</p>
+        <!-- ADD YOUR REAL ONE SOURCE WINS HERE (only what's true): e.g. exhibition operations you ran, vendor coordination, marketing assets you made, databases you built, workflows you improved, sales you supported. Use active verbs + any numbers/outcomes. -->
+
+        <p>What it's teaching me: the detail is the strategy. Most "execution problems" are really clarity problems. And following up — reliably, without being asked — is the part that quietly decides everything.</p>
+        <span class="tag tag-live">Live · testing myself</span>
+      </div>
+    </section>
+
+    <section class="entry rv">
+      <div class="margin"><span class="date">May–Aug 2025</span><span class="note">the technical<br>proof.</span></div>
+      <div class="body">
+        <p><b>IIIT Kottayam — NLP research.</b> I built and evaluated NLP classification models in <b>Python</b> to flag misinformation, plus the proof-of-concept tools and the documentation around them.</p>
+        <p>It taught me that research is patience, precision and synthesis — and confirmed I understand the technology well enough not to be fooled by it. I'd just rather coordinate and ship it than only model it.</p>
+        <span class="tag tag-ship">Shipped</span>
+      </div>
+    </section>
+
+    <section class="entry rv">
+      <div class="margin"><span class="date">Nov 2024–Jan 2025</span><span class="note">first look behind<br>the org chart.</span></div>
+      <div class="body">
+        <p><b>VS-Kart — HR intern.</b> I ran recruitment support — screened resumes, coordinated interviews, built the onboarding materials, and ran employee-engagement initiatives.</p>
+        <p>My first real look at how an organisation runs behind the org chart — and where the coordination quietly breaks.</p>
+        <span class="tag tag-ship">Shipped</span>
+      </div>
+    </section>
+
+    <!-- 6b · WHAT PEOPLE SAY -->
+    <section class="entry rv" id="says">
+      <span class="label">What people say</span>
+      <div class="margin"><span class="note">other people's<br>words, not mine.</span></div>
+      <div class="body">
+        <blockquote class="say">
+          <p>"Builds the staircase while climbing it — a rare mix of heart, hustle, and clarity."</p>
+          <cite>— Major Deepak Raj · mentor, Jeevan Jhola</cite>
+        </blockquote>
+        <!-- ADD 2–4 MORE REAL testimonials here (you mentioned a recommendation from Sudhanshu Shukla at VS-Kart — paste his actual words). Copy this block per quote:
+        <blockquote class="say"><p>"their exact words"</p><cite>— Name · role / company</cite></blockquote>
+        Only ever use genuine quotes. -->
+      </div>
+    </section>
+
+    <!-- 7 · FIELD NOTES -->
+    <section class="entry rv" id="notes">
+      <span class="label">Field notes</span>
+      <div class="margin"><span class="note">things I've noticed,<br>doing the work.</span></div>
+      <div class="body">
+        <div class="fnotes">
+          <div class="fnote"><span class="n">No. 03</span><p>You can't manage what you've never touched at the bottom. The detail is the strategy.</p></div>
+          <div class="fnote"><span class="n">No. 07</span><p>People support sustainable ideas — right up until convenience gets involved.</p></div>
+          <div class="fnote"><span class="n">No. 11</span><p>Most execution problems are clarity problems wearing a costume.</p></div>
+          <div class="fnote"><span class="n">No. 15</span><p>The person who follows up usually wins. It's boring, and that's exactly why it's rare.</p></div>
+          <div class="fnote"><span class="n">No. 18</span><p>Starting is easy. Deciding what to stop is the hard part.</p></div>
+          <div class="fnote"><span class="n">No. 22</span><p>"Never give up" is expensive advice. Quitting the right thing on purpose is a skill.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · WORKING PRINCIPLES -->
+    <section class="entry rv" id="principles">
+      <span class="label">Working principles — what I optimise for</span>
+      <div class="margin"><span class="note">the rules I've<br>earned the<br>hard way.</span></div>
+      <div class="body">
+        <ol class="principles">
+          <li><b>Clarity before speed.</b> <span>Most "execution problems" are clarity problems in disguise.</span></li>
+          <li><b>Decisions before perfection.</b> <span>Decide at 70%, watch what breaks, fix fast.</span></li>
+          <li><b>Reality over assumptions.</b> <span>Test the behaviour before building the thing.</span></li>
+          <li><b>Follow-up over excitement.</b> <span>The boring 80% is where things actually get done.</span></li>
+          <li><b>Knowing what to stop.</b> <span>Quitting the right thing on purpose is a skill, not a failure.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 9 · THINGS I'M LEARNING -->
+    <section class="entry rv" id="learning">
+      <span class="label">Things I'm learning right now</span>
+      <div class="margin"><span class="note">in progress.<br>on purpose.</span></div>
+      <div class="body qs">
+        <p>How to read a business by its numbers — what actually makes it work versus just look busy.</p>
+        <p>How decisions really get made when information is incomplete and the clock is running.</p>
+        <p>Where execution quietly breaks — and how to catch it before it costs anything.</p>
+        <p>How to lead and coordinate people who are figuring it out right next to you.</p>
+      </div>
+    </section>
+
+    <!-- 10 · WHAT I'M LOOKING FOR -->
+    <section class="entry rv" id="lf">
+      <span class="label">What I'm looking for</span>
+      <div class="margin"><span class="note">internships now,<br>bigger things<br>later.</span></div>
+      <div class="body">
+        <p>Roles where I'll be close to real decisions and real chaos — somewhere small and fast, where I can see my own impact. That's where I learn quickest.</p>
+        <div class="lf">
+          <div><span class="k">Looking for</span><span class="v">Project management · Founder's Office · Operations · Technical-PM roles</span></div>
+          <div><span class="k">Based in</span><span class="v">India — open to remote / hybrid / on-site</span></div>
+          <div><span class="k">Available</span><span class="v">Now</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 · CONTACT -->
+    <section class="entry rv reach" id="reach">
+      <span class="label">Get in touch</span>
+      <div class="margin"><span class="note">I'd rather do real<br>work somewhere<br>small than carry<br>a big logo.</span></div>
+      <div class="body">
+        <p style="font-size:1.2rem;font-weight:500;line-height:1.34">I'm not looking for a title. I'm looking for proximity to hard problems, smart people, and real responsibility.</p>
+        <p>If that's what you're building, let's talk. Reach me directly — I reply to everything.</p>
+        <div class="links">
+          <a href="mailto:hrakashchauhan@gmail.com">email</a>
+          <a href="https://www.linkedin.com/in/youfoundakash" target="_blank" rel="noopener">linkedin ↗</a>
+          <a href="https://github.com/hrakashchauhan" target="_blank" rel="noopener">github ↗</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="signoff">
+    <div class="grid">
+      <div class="margin"><span class="note">start → test →<br>decide → move.</span></div>
+      <div>
+        <p class="sig">— Akash</p>
+        <p class="fineprint">Built and written by me. Last updated June 2026.</p>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var els = document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    els.forEach(function(e){e.classList.add('in');}); return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {threshold:0.16, rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e);});
+})();
+</script>
+</body>
+</html>

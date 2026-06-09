@@ -1,0 +1,86 @@
+/* ============================================================
+   THE OPERATING LEDGER — design tokens
+   Light theme, one accent (electric blue), AA/AAA verified.
+   Contrast on --bg: ink ~17:1 · ink-soft ~7.8:1 · accent ~5.9:1
+   Status tag text on its tint: live ~5.0:1 · shipped ~5.3:1 · killed ~5.5:1
+   ============================================================ */
+:root {
+  /* surface & ink */
+  --bg:        #FBFBFA;   /* warm off-white */
+  --surface:   #FFFFFF;
+  --ink:       #16181D;   /* primary text */
+  --ink-soft:  #4A4F59;   /* secondary text */
+  --rule:      #E3E3E0;   /* hairlines & grid lines */
+  --rule-bold: #16181D;   /* double rules on the ledger */
+
+  /* the one accent */
+  --accent:        #1B4DFF;
+  --accent-press:  #1338C2;
+  --accent-ink:    #FFFFFF;
+  --accent-bg:     #EEF1FF;  /* faint accent wash for the contact band */
+
+  /* translucent sticky-header fill (matches --bg) */
+  --head-bg:   rgba(251,251,250,.88);
+
+  /* status palette — never color alone; always label + glyph too */
+  --live:      #0B7A4B;  --live-bg:    #E6F4EC;
+  --shipped:   #1B4DFF;  --shipped-bg: #E8EDFF;
+  --killed:    #B23A1E;  --killed-bg:  #FBEAE4;
+  --prog:      #4A4F59;  --prog-bg:    #EDEDEA;
+
+  --focus:     #1B4DFF;
+
+  /* type */
+  --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Code', Consolas, 'Courier New', monospace;
+
+  --fs-display: clamp(2.6rem, 1.5rem + 4.6vw, 4.5rem);
+  --fs-h2:      clamp(1.7rem, 1.32rem + 1.5vw, 2.25rem);
+  --fs-h3:      1.25rem;
+  --fs-lead:    clamp(1.12rem, 1.04rem + 0.4vw, 1.25rem);
+  --fs-body:    1.0625rem;
+  --fs-meta:    0.8125rem;
+  --fs-micro:   0.75rem;
+
+  /* layout */
+  --maxw:   1080px;
+  --pad:    clamp(20px, 5vw, 24px);
+  --rhythm: clamp(50px, 7vh, 84px);
+  --head-h: 60px;
+}
+
+/* ============================================================
+   DARK THEME — system-driven (prefers-color-scheme), zero JS.
+   Redefines the same tokens so every component flips automatically
+   and stays readable with JavaScript disabled.
+   Contrast on --bg: ink ~16:1 · ink-soft ~7.4:1 · accent ~7.5:1
+   Status tag text on its tint stays AA. One accent, as in light mode.
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* surface & ink */
+    --bg:        #131419;   /* warm near-black */
+    --surface:   #1B1D24;
+    --ink:       #F3F3F1;   /* primary text */
+    --ink-soft:  #A7ACB6;   /* secondary text */
+    --rule:      #2B2E36;   /* hairlines & grid lines */
+    --rule-bold: #F3F3F1;   /* double rules on the ledger */
+
+    /* the one accent — brightened for dark surfaces */
+    --accent:        #8AB4FF;
+    --accent-press:  #ADC8FF;
+    --accent-ink:    #0B0C10;  /* dark text on the light-blue button */
+    --accent-bg:     #181D2B;  /* faint accent wash for the contact band */
+
+    /* status palette — label + glyph + tint, never colour alone */
+    --live:      #45D88A;  --live-bg:    #11271C;
+    --shipped:   #8AB4FF;  --shipped-bg: #182338;
+    --killed:    #FF8C6B;  --killed-bg:  #2E1812;
+    --prog:      #B7BCC6;  --prog-bg:    #24262E;
+
+    --focus:     #8AB4FF;
+
+    /* translucent sticky-header fill (matches dark --bg) */
+    --head-bg:   rgba(19,20,25,.85);
+  }
+}
