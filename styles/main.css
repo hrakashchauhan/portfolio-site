@@ -192,11 +192,221 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
    ============================================================ */
 @media print {
   :root { --bg: #fff; --surface: #fff; --accent: #000; --accent-press: #000; --ink-soft: #333; --rule: #bbb; --rule-bold: #000; --accent-bg: #fff; }
-  .site-head, .skip, .btn, .nodes, .portrait { display: none !important; }
+  .site-head, .skip, .btn, .nodes, .portrait, .ticker, .wa-fab { display: none !important; }
   .js .reveal, .reveal { opacity: 1 !important; transform: none !important; }
   body { font-size: 10.5pt; }
   .section { padding-block: 14px; }
   .tag { border: 1px solid #999; background: #fff !important; color: #000 !important; }
   a { color: #000; }
   .contact .links a::after { content: " (" attr(href) ")"; font-size: 8.5pt; color: #333; }
+  .status-board { background: #fff !important; border: 1px solid #bbb; color: #000 !important; }
+}
+
+/* ============================================================
+   BOARDING PASS · hero strip
+   ============================================================ */
+.boarding {
+  display: inline-flex; align-items: stretch;
+  border: 1px solid var(--rule); border-radius: 10px;
+  background: var(--surface); overflow: hidden;
+  margin-top: 26px; font-family: var(--mono); font-size: var(--fs-meta);
+  flex-wrap: wrap;
+}
+.boarding-field {
+  display: flex; flex-direction: column; justify-content: center;
+  gap: 3px; padding: 10px 14px;
+  border-left: 1px solid var(--rule);
+}
+.boarding-field:first-child { border-left: none; }
+.bp-lbl { color: var(--ink-soft); font-size: .6rem; letter-spacing: .12em; text-transform: uppercase; }
+.bp-val { color: var(--ink); font-weight: 600; white-space: nowrap; }
+.bp-status { color: var(--live); }
+
+/* ============================================================
+   TICKER / MARQUEE STRIP
+   ============================================================ */
+.ticker {
+  overflow: hidden; border-block: 1px solid var(--rule);
+  padding-block: 10px; background: var(--bg);
+}
+.ticker-track {
+  display: flex; align-items: center; gap: 24px;
+  width: max-content;
+  font-family: var(--mono); font-size: var(--fs-meta);
+  color: var(--ink-soft); letter-spacing: .07em; text-transform: uppercase;
+  animation: ticker-scroll 32s linear infinite;
+}
+.tk-dot { color: var(--accent); font-weight: 700; }
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
+}
+
+/* ============================================================
+   SPEC LIST · "What I bring" cells
+   ============================================================ */
+.spec-list {
+  list-style: none; margin-top: 14px;
+  display: flex; flex-direction: column; gap: 7px;
+}
+.spec-list li {
+  font-size: var(--fs-body); color: var(--ink-soft);
+  padding-left: 16px; position: relative; line-height: 1.4;
+}
+.spec-list li::before {
+  content: '—'; position: absolute; left: 0;
+  color: var(--accent); font-weight: 700;
+}
+
+/* ============================================================
+   GANTT TIMELINE · S4
+   ============================================================ */
+.gantt-sec .sec-head { margin-bottom: 20px; }
+.gantt { position: relative; margin-top: 8px; }
+
+.gantt-axis {
+  display: grid; grid-template-columns: 120px 1fr; gap: 14px;
+  margin-bottom: 10px;
+}
+.gantt-axis-track {
+  position: relative; height: 20px;
+  font-family: var(--mono); font-size: .68rem; color: var(--ink-soft);
+}
+.axis-mark {
+  position: absolute; transform: translateX(-50%);
+  white-space: nowrap;
+}
+.gantt-now-lbl { color: var(--ink); font-weight: 700; }
+
+.gantt-rows {
+  position: relative;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.gantt-row {
+  display: grid; grid-template-columns: 120px 1fr; gap: 14px; align-items: center;
+}
+.gantt-lbl {
+  font-family: var(--mono); font-size: .72rem; color: var(--ink-soft);
+  text-align: right; line-height: 1.35;
+}
+.gantt-lbl small { font-size: .64rem; opacity: .75; }
+.gantt-track {
+  position: relative; height: 30px;
+  background: var(--accent-bg); border-radius: 6px; overflow: hidden;
+}
+.gantt-bar {
+  position: absolute; top: 0; height: 100%; border-radius: 6px;
+  display: flex; align-items: center; padding: 0 10px;
+  font-family: var(--mono); font-size: .68rem; font-weight: 600;
+  color: #fff; white-space: nowrap; overflow: hidden;
+}
+.gbar-shipped { background: var(--shipped); }
+.gbar-killed  { background: var(--killed); }
+.gbar-live    { background: var(--live); }
+
+/* NOW dashed vertical line — positioned within gantt-rows */
+.gantt-now-line {
+  position: absolute; right: 4%; top: -6px; bottom: -6px;
+  border-left: 2px dashed var(--ink-soft);
+  pointer-events: none;
+}
+
+.arc-foot {
+  font-family: var(--mono); font-size: var(--fs-meta);
+  color: var(--ink-soft); margin-top: 22px;
+}
+.arc-foot .mono-sm { letter-spacing: .04em; }
+
+@media (max-width: 560px) {
+  .gantt-axis { grid-template-columns: 80px 1fr; gap: 10px; }
+  .gantt-row  { grid-template-columns: 80px 1fr; gap: 10px; }
+  .gantt-lbl  { font-size: .64rem; }
+  .gantt-bar  { font-size: .6rem; padding: 0 7px; }
+  .gantt-bar span { display: none; }
+}
+
+/* ============================================================
+   STATUS DASHBOARD · S7
+   ============================================================ */
+.status-board {
+  background: #16181D; color: #F3F3F1;
+  border-radius: 14px; padding: 28px 30px;
+}
+@media (prefers-color-scheme: dark) {
+  .status-board { background: #0f1114; border: 1px solid var(--rule); }
+}
+.status-board-head {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 18px;
+  font-family: var(--mono); font-size: var(--fs-meta);
+  flex-wrap: wrap; gap: 8px;
+}
+.status-all-good { color: #45D88A; }
+.status-lines {
+  display: flex; flex-direction: column; gap: 2px;
+  border-radius: 10px; overflow: hidden; margin-bottom: 16px;
+}
+.status-ln {
+  display: grid; grid-template-columns: auto 1fr auto;
+  gap: 12px; align-items: center;
+  background: rgba(255,255,255,.06); padding: 12px 16px;
+  font-size: var(--fs-body);
+}
+.st-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+.st-badge { font-family: var(--mono); font-size: var(--fs-meta); color: rgba(243,243,241,.6); white-space: nowrap; }
+.st-up  .st-dot { background: #45D88A; box-shadow: 0 0 8px #45D88A; }
+.st-dep .st-dot { background: #8AB4FF; box-shadow: 0 0 8px #8AB4FF; }
+.st-off .st-dot { background: #6b7280; }
+.status-metrics {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+}
+.st-metric {
+  background: rgba(255,255,255,.06); border-radius: 10px;
+  padding: 14px 16px;
+}
+.st-k {
+  font-family: var(--mono); font-size: .62rem; letter-spacing: .1em;
+  text-transform: uppercase; color: rgba(243,243,241,.5);
+}
+.st-v { font-size: var(--fs-body); font-weight: 600; margin-top: 5px; color: #F3F3F1; }
+
+@media (max-width: 560px) {
+  .status-board { padding: 20px 18px; }
+  .status-metrics { grid-template-columns: 1fr 1fr; }
+  .status-ln { grid-template-columns: auto 1fr; }
+  .st-badge { display: none; }
+}
+
+/* ============================================================
+   WhatsApp button (inline CTA)
+   ============================================================ */
+.btn.btn-wa {
+  background: #25D366; border-color: #25D366; color: #fff;
+  gap: 8px;
+}
+.btn.btn-wa:hover { background: #1dbb5b; border-color: #1dbb5b; color: #fff; text-decoration: none; }
+
+/* ============================================================
+   WhatsApp FAB · floating bottom-right
+   ============================================================ */
+.wa-fab {
+  position: fixed; bottom: 24px; right: 24px; z-index: 200;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #25D366; color: #fff;
+  border-radius: 999px; padding: 14px 20px; min-height: 52px;
+  font-family: var(--sans); font-weight: 600; font-size: var(--fs-meta);
+  text-decoration: none; box-shadow: 0 4px 20px rgba(37,211,102,.45);
+  transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+.wa-fab:hover {
+  background: #1dbb5b; transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(37,211,102,.55);
+  color: #fff; text-decoration: none;
+}
+@media (max-width: 560px) {
+  .wa-fab span { display: none; }
+  .wa-fab { padding: 14px; border-radius: 50%; bottom: 18px; right: 18px; }
 }
