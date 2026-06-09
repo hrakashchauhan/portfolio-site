@@ -1,42 +1,38 @@
-# CONTENT-TODO — real facts still needed from Akash
+# CONTENT-TODO — real facts still worth adding
 
-The site is **complete and shippable right now**. Every gap below currently uses truthful qualitative copy — and
-the spots where a real number would add punch are marked with `ADD REAL …` HTML comments in `index.html`, inside
-the relevant **ledger row**. **No fabricated numbers anywhere.**
+The site is **complete and shippable right now**. Every claim on it is true, in Akash's voice, positioned as an
+**operator moving toward project management** (never "Project Manager" as a present-tense title). The gaps below
+are *optional* — places where a real number or a verified quote would add punch. They're marked with `ADD REAL …`
+HTML comments in `index.html`, inside the relevant **ledger row**.
 
 > Rule: only ever enter values that are true. A single number a recruiter probes and finds false does more damage
 > than no number at all.
 
-## Numbers (optional, but they strengthen the proof)
+## What's already real and on the page
+- **One Source International** — Founder's Office (Assistant Executive), live now.
+- **µLearn Foundation** — Campus Lead; *60+ students at the first offline orientation*.
+- **Global Game Jam Kerala** — Best Innovative Game; *Project Manager / Producer · 4-person team · 48 hours* (the standout PM artifact, its own feature section).
+- **IIIT Kottayam** — Technical Intern, iINT-'25; *13-week selective cohort under Dr. Jayakrushna Sahoo*; Fake News Checker (Python + GenAI/NLP).
+- **Jeevan Jhola** — Founder; built, tested (concept deep-dive + mock survey + reviews), shut it down on purpose.
+- **VS-Kart** — HR Intern (Remote).
+- **Testimonial** — Major Deepak Raj ("Builds the staircase while climbing it…"), verified.
 
-1. **Jeevan Jhola** · `index.html`, the `✕ Killed` ledger row → `ADD REAL FIGURES HERE` comment.
-   If you have them: interns led · mock-survey responses · reviews gathered.
-   (Validated by a concept deep-dive + a mock survey + user reviews — there was **no** live market pilot;
-   that evidence is what told you to kill it.)
-
-2. **One Source International** · `index.html`, the `● Live` ledger row → `ADD REAL WINS HERE` comment.
-   Which are true (+ outcomes/numbers): exhibition operations · vendor coordination · marketing assets ·
-   databases built · workflows improved · sales supported? Add one true line, active verbs.
-
-3. **IIIT Kottayam** · `index.html`, the first `✓ Shipped` ledger row → `ADD REAL RESULTS HERE` comment.
-   Model accuracy + dataset size, e.g. "~88% on a 10k-example labelled set."
-
-4. **VS-Kart** · `index.html`, the second `✓ Shipped` ledger row → `ADD REAL COUNTS HERE` comment.
-   Resumes screened / interviews coordinated.
+## Optional numbers (strengthen the proof — only if true)
+1. **Jeevan Jhola** → `✕ Killed` ledger row, `ADD REAL FIGURES HERE`: interns led · mock-survey responses · reviews gathered.
+2. **One Source International** → `● Live` ledger row, `ADD REAL WIN/NUMBER HERE`: exhibition ops · vendor coordination · databases built · workflows improved · sales supported — one true line, active verbs.
+3. **VS-Kart** → `✓ Shipped` ledger row, `ADD REAL COUNTS HERE`: resumes screened / interviews coordinated.
+4. **IIIT Kottayam** → if you have it: model accuracy + dataset size (e.g. "~88% on a 10k-example set").
 
 ## Testimonials (real only)
-
-5. **Sudhanshu Shukla (VS-Kart)** — his exact wording + role · `index.html`, the `What people say` section →
-   `ADD MORE *REAL* TESTIMONIALS` comment (a ready-to-fill `<blockquote class="quote">` template is there).
-   The verified Major Deepak Raj quote is already published.
+5. **Sudhanshu Shukla (VS-Kart)** — a recommendation exists; the exact wording is unconfirmed. A commented-out
+   `<blockquote class="quote">` template waits in the **"In someone's words"** section. Paste his words verbatim
+   once confirmed. **Never publish invented praise.**
 
 ## Configuration
-
-6. **Photo** — ✅ done. Your photo is live in the hero and the OG image (`assets/akash.jpg`, 560×560). Overwrite
-   that file to change it.
-7. **Domain** — currently the placeholder `https://akashkumar.netlify.app/`. See README → *Set your domain*.
+6. **Google PM certificate** — listed as *in progress, ~June 2026*. Change to "completed" once it actually is.
+7. **Photo** — `assets/akash.jpg` (560×560) drives the hero and the OG/social card. Overwrite that one file to change it.
+8. **Domain** — currently the placeholder `https://akashkumar.netlify.app/`. See README → *Set your domain*.
 
 ## Optional upgrade
-
-8. **More ledger rows / proof links** — if you want, real shipped artifacts (the Jeevan Jhola site, a dashboard, a
-   doc) can become extra `✓ Shipped` rows with a link. Send real links/screenshots — no fabricated entries.
+9. **More ledger rows / proof links** — real shipped artifacts (the Jeevan Jhola site, a dashboard, a Game Jam build
+   link) can become extra `✓ Shipped` entries with a link. Send real links/screenshots — no fabricated entries.

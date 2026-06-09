@@ -8,7 +8,8 @@ $out  = Join-Path $root 'assets\fonts'
 New-Item -ItemType Directory -Force -Path $out | Out-Null
 
 $ua  = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
-$api = 'https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap'
+# Fraunces is variable (one file covers weight 400–600); Inter + IBM Plex Mono are static cuts.
+$api = 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap'
 
 try {
   $css = (Invoke-WebRequest -Uri $api -UserAgent $ua -UseBasicParsing).Content
@@ -18,7 +19,7 @@ try {
   return
 }
 
-$slug  = @{ 'Newsreader' = 'newsreader'; 'IBM Plex Mono' = 'ibm-plex-mono' }
+$slug  = @{ 'Fraunces' = 'fraunces'; 'Inter' = 'inter'; 'IBM Plex Mono' = 'ibm-plex-mono' }
 $rx    = [regex]"/\*\s*(?<sub>[\w-]+)\s*\*/\s*@font-face\s*\{(?<body>[^}]*)\}"
 $faces = @()
 foreach ($m in $rx.Matches($css)) {

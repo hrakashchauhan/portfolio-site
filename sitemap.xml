@@ -2,7 +2,7 @@
 <!-- DOMAIN: update the <loc> below when you set your real domain (see README "Set your domain"). -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://akashkumar.netlify.app/</loc>
+    <loc>https://youfoundakash.netlify.app/</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
