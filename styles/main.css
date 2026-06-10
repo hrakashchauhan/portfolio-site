@@ -23,12 +23,18 @@ body {
 img { max-width: 100%; height: auto; display: block; }
 ::selection { background: var(--hl); color: var(--ink); }
 a { color: var(--accent); text-decoration: none; }
+/* anchor targets clear the sticky masthead instead of hiding beneath it */
+[id] { scroll-margin-top: calc(var(--head-h) + 18px); }
 
 /* Newsreader display moments */
 h1, h2, .entry, .quote-text, .award-line, .brand, .cl, .kill-note, .sig {
   font-family: var(--display); font-optical-sizing: auto;
 }
 h1, h2 { font-weight: 600; letter-spacing: -0.01em; line-height: 1.1; }
+/* editorial line-handling: balance headings, avoid orphans in body copy */
+h1, h2, .cl, .award-line, .entry, .quote-text { text-wrap: balance; }
+.lead, .row-body .out, .feat-body, .prose p, .principles span.t,
+.facts-list .fv, .arc-note, .contact .reply { text-wrap: pretty; }
 
 /* mono machinery */
 .eyebrow, .num, .meta, .dateline, .tag, .loop, .foot, .seeking, .metric, .fact-k,
@@ -239,6 +245,7 @@ h1, h2 { font-weight: 600; letter-spacing: -0.01em; line-height: 1.1; }
 .contact .cta-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
 .contact .links { display: flex; flex-wrap: wrap; gap: 14px 26px; font-family: var(--mono); font-size: var(--fs-meta); }
 .contact .links a { color: var(--accent); }
+.contact .links .loc { color: var(--ink-soft); }   /* location is a label, not a link */
 .contact .seeking { display: block; font-size: var(--fs-meta); letter-spacing: .02em; color: var(--ink-soft); max-width: 60ch; line-height: 1.7; }
 
 /* ---------- footer ---------- */
