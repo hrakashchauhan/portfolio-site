@@ -5,30 +5,32 @@
 <link rel="stylesheet" href="../../assets/fonts/fonts.css">
 <style>
   :root{
-    --bg:#FAF8F4; --ink:#1B1A17; --soft:#57534A; --rule:#E5E1D8; --accent:#9A3412;
-    --live:#1F6B4A; --live-bg:#E7F1EB; --shipped:#3A4A6B; --shipped-bg:#E9EDF4; --killed:#9A3412; --killed-bg:#F4E9E2;
-    --display:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',monospace;
+    --paper:#F7F6F1; --ink:#16181D; --soft:#5B5D66; --rule:#E4E1D6; --rule-paper:#E8E5DB; --accent:#2B3A87;
+    --live:#256B43; --live-bg:#E7EFE9; --shipped:#2B3A87; --shipped-bg:#E7E9F4; --killed:#B23A2E; --killed-bg:#F6E7E4;
+    --display:'Newsreader',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',monospace;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{width:1200px;height:630px;overflow:hidden}
-  body{background:var(--bg);color:var(--ink);font-family:var(--sans);display:grid;grid-template-columns:1fr 372px}
+  body{background:var(--paper);background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 33px,var(--rule-paper) 33px,var(--rule-paper) 34px);color:var(--ink);font-family:var(--display);display:grid;grid-template-columns:1fr 372px}
   .main{padding:0 0 0 84px;display:flex;flex-direction:column;justify-content:center}
-  .ey{font-family:var(--mono);font-size:20px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:500;margin-bottom:24px}
-  h1{font-family:var(--display);font-variation-settings:'opsz' 72,'SOFT' 0,'WONK' 0;font-size:68px;font-weight:600;line-height:1.02;letter-spacing:-.018em;max-width:13ch}
+  .ey{font-family:var(--mono);font-size:19px;letter-spacing:.13em;text-transform:uppercase;color:var(--soft);font-weight:500;margin-bottom:24px}
+  h1{font-family:var(--display);font-size:70px;font-weight:600;line-height:1.02;letter-spacing:-.015em;max-width:13ch}
   h1 .ac{color:var(--accent)}
-  .ledger{margin-top:38px;border-top:3px double var(--ink);border-bottom:3px double var(--ink);padding:4px 0}
+  .ledger{margin-top:40px;border-top:3px double var(--ink);border-bottom:3px double var(--ink);padding:4px 0}
   .row{display:flex;align-items:center;gap:18px;padding:13px 0}
   .row+.row{border-top:1px solid var(--rule)}
   .tag{font-family:var(--mono);font-size:16px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:6px 11px;border-radius:5px;white-space:nowrap}
   .tag.live{color:var(--live);background:var(--live-bg)}
   .tag.killed{color:var(--killed);background:var(--killed-bg)}
   .tag.shipped{color:var(--shipped);background:var(--shipped-bg)}
-  .row .t{font-family:var(--display);font-variation-settings:'opsz' 72;font-size:25px;font-weight:600}
-  .row .t span{font-family:var(--sans);color:var(--soft);font-weight:400;font-size:21px}
-  .foot{font-family:var(--mono);font-size:18px;color:var(--soft);margin-top:32px}
+  .row .t{font-family:var(--display);font-size:26px;font-weight:600}
+  .row .t span{font-family:var(--sans);color:var(--soft);font-weight:400;font-size:20px}
+  .foot{font-family:var(--mono);font-size:18px;color:var(--soft);margin-top:34px}
   .foot b{color:var(--ink);font-weight:500}
-  .side{position:relative;border-left:1px solid var(--rule);display:flex;align-items:center;justify-content:center;background:#fff}
-  .side img{width:262px;height:262px;object-fit:cover;border-radius:6px;border:1px solid var(--rule)}
+  .side{position:relative;border-left:1px solid var(--rule);display:flex;align-items:center;justify-content:center}
+  .photo{background:#fff;padding:10px 10px 30px;border:1px solid var(--rule);box-shadow:0 8px 22px rgba(0,0,0,.12);transform:rotate(-2.4deg)}
+  .photo img{display:block;width:236px;height:236px;object-fit:cover}
+  .photo .cap{font-family:var(--mono);font-size:13px;color:var(--soft);text-align:center;padding-top:10px}
 </style>
 </head>
 <body>
@@ -43,7 +45,7 @@
     <div class="foot"><b>hrakashchauhan@gmail.com</b> &nbsp;·&nbsp; Ernakulam, Kerala &nbsp;·&nbsp; available now</div>
   </div>
   <div class="side">
-    <img src="../../assets/akash.jpg" alt="">
+    <figure class="photo"><img src="../../assets/akash.jpg" alt=""><figcaption class="cap">me, lately</figcaption></figure>
   </div>
 </body>
 </html>

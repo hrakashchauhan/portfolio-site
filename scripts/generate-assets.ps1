@@ -57,7 +57,7 @@ Shot (Join-Path $src 'og.html') (Join-Path $out 'og-image.png') 1200 630 $false
 $svg = Get-Content (Join-Path $out 'favicon.svg') -Raw
 $base = 'html,body{margin:0;width:100%;height:100%}svg{display:block;width:100%;height:100%}'
 $iconHtml  = "<!doctype html><html><head><meta charset='utf-8'><style>$base body{background:transparent}</style></head><body>$svg</body></html>"
-$appleHtml = "<!doctype html><html><head><meta charset='utf-8'><style>$base body{background:#9A3412}</style></head><body>$svg</body></html>"
+$appleHtml = "<!doctype html><html><head><meta charset='utf-8'><style>$base body{background:#2B3A87}</style></head><body>$svg</body></html>"
 Set-Content -Path (Join-Path $tmp 'icon.html')  -Value $iconHtml  -Encoding UTF8
 Set-Content -Path (Join-Path $tmp 'apple.html') -Value $appleHtml -Encoding UTF8
 Shot (Join-Path $tmp 'icon.html')  (Join-Path $out 'favicon.png')          512 512 $true

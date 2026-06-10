@@ -1,88 +1,96 @@
 /* ============================================================
-   THE OPERATING LEDGER — design tokens
-   A calm, editorial record. Warm porcelain + ink, one terracotta
-   accent, muted slate/green status states. AA/AAA verified.
+   THE FIELD LEDGER — design tokens
+   A warm notebook record with a blue-ink ledger spine.
+   Warm ruled paper + ONE ink-blue accent (#2B3A87) + muted-red KILLED.
+   Newsreader serif (display + body) · Inter (UI/labels) · IBM Plex Mono (ledger).
 
-   Contrast on --bg (#FAF8F4):
-     ink ~15.6:1 · ink-soft ~7.0:1 · accent ~6.9:1 (AAA large / AA text)
-     white-on-accent button ~7.3:1 · live ~5.6:1 · shipped ~7.6:1
+   Contrast on --paper (#F7F6F1):
+     ink ~16.4:1 · ink-soft ~6.1:1 · accent/pen ~9.4:1 (AAA)
+     white-on-pen button ~10.2:1 · live ~6.0:1 · shipped ~9.4:1 · killed ~5.5:1
    Status is ALWAYS triple-encoded (text label + glyph + colour) — SC 1.4.1.
    ============================================================ */
 :root {
-  /* surface & ink */
-  --bg:        #FAF8F4;   /* warm porcelain */
-  --surface:   #FFFFFF;
-  --ink:       #1B1A17;   /* near-black, warm */
-  --ink-soft:  #57534A;   /* secondary text */
-  --rule:      #E5E1D8;   /* hairlines & grid lines */
-  --rule-bold: #1B1A17;   /* the ledger "total" rules */
+  /* surface & ink — warm paper, not porcelain */
+  --bg:         #F7F6F1;   /* warm ruled paper */
+  --surface:    #FFFFFF;
+  --rule-paper: #F1EFE8;   /* ruled lines — whisper-faint so they never cut through reading text */
+  --ink:        #16181D;
+  --ink-soft:   #5B5D66;   /* secondary + marginalia */
+  --rule:       #E4E1D6;   /* hairlines & grid lines */
+  --rule-bold:  #16181D;   /* ledger "total" rules */
 
-  /* the one accent — terracotta / burnt sienna */
-  --accent:        #9A3412;
-  --accent-hover:  #7C2A0E;
+  /* the one accent — ink-blue pen (the reference's pen) */
+  --accent:        #2B3A87;
+  --accent-hover:  #1C285F;
   --accent-ink:    #FFFFFF;
-  --accent-bg:     #F4E9E2;  /* faint warm wash for the contact band */
+  --accent-bg:     #ECEEF6;  /* cool-blue wash for the contact band */
+
+  /* the one warmth tint — soft-yellow highlighter (reference value) */
+  --hl:        rgba(247,212,84,.55);
 
   /* translucent sticky-masthead fill (matches --bg) */
-  --head-bg:   rgba(250,248,244,.86);
+  --head-bg:   rgba(247,246,241,.86);
 
-  /* status palette — quiet, near-equal weight; never colour alone */
-  --live:      #1F6B4A;  --live-bg:    #E7F1EB;
-  --shipped:   #3A4A6B;  --shipped-bg: #E9EDF4;
-  --killed:    #9A3412;  --killed-bg:  #F4E9E2;
-  --prog:      #57534A;  --prog-bg:    #EFEBE2;
+  /* status palette — quiet, never colour alone */
+  --live:      #256B43;  --live-bg:    #E7EFE9;
+  --shipped:   #2B3A87;  --shipped-bg: #E7E9F4;
+  --killed:    #A32B2B;  --killed-bg:  #F6E7E7;   /* pure cool red (hue 0deg), unambiguously NOT terracotta */
+  --prog:      #5B5D66;  --prog-bg:    #EEEBE2;
 
-  --focus:     #9A3412;
+  --focus:     #2B3A87;
 
   /* type */
-  --display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --display: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --serif:   'Newsreader', Georgia, 'Times New Roman', serif;
   --sans:    'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --mono:    'IBM Plex Mono', ui-monospace, 'Cascadia Code', Consolas, 'Courier New', monospace;
 
-  /* fluid type scale — ~1.25 ratio, 8px baseline, 360→1440 */
-  --fs-display: clamp(2.7rem, 1.7rem + 4.2vw, 4.5rem);
+  /* fluid type scale — ~1.25 ratio, 8px baseline, 360→1440 (serif body → generous leading) */
+  --fs-display:        clamp(1.85rem, 1.0rem + 4.0vw, 4.4rem);
+  --fs-display-feature: clamp(1.5rem, 1.2rem + 1.4vw, 2rem);
   --fs-h2:      clamp(1.65rem, 1.3rem + 1.5vw, 2.3rem);
   --fs-h3:      clamp(1.18rem, 1.08rem + 0.4vw, 1.4rem);
   --fs-lead:    clamp(1.15rem, 1.05rem + 0.45vw, 1.3rem);
-  --fs-body:    1.0625rem;   /* 17px */
-  --fs-meta:    0.8125rem;   /* mono dates/metadata */
-  --fs-micro:   0.72rem;     /* mono eyebrows/status/section-num */
+  --fs-body:    1.075rem;
+  --fs-meta:    0.8125rem;
+  --fs-micro:   0.72rem;
 
   /* layout & rhythm */
   --maxw:   1080px;
   --pad:    clamp(20px, 5vw, 28px);
-  --rhythm: clamp(64px, 9vh, 116px);   /* generous air = the "expensive" signal */
+  --rhythm: clamp(64px, 9vh, 116px);
   --head-h: 60px;
 }
 
 /* ============================================================
-   DARK THEME — system-driven (prefers-color-scheme), zero JS.
-   Redefines the SAME token names so every component flips and
-   stays readable with JavaScript disabled.
-   Contrast on dark --bg (#1A1714): ink ~15.3:1 · ink-soft ~7.0:1
-   · accent ~6.7:1 · accent-ink on accent ~6.7:1. All AA+.
+   DARK THEME — "after-hours notebook." System-driven, zero JS.
+   accent #8FA6FF ~7.8:1 · ink-soft ~7.6:1 · live ~9.5:1 · killed ~7.1:1 — all AA+.
    ============================================================ */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg:        #1A1714;
-    --surface:   #221E1A;
-    --ink:       #F2EDE6;
-    --ink-soft:  #A9A299;
-    --rule:      #322B25;
-    --rule-bold: #F2EDE6;
+    --bg:         #15161B;
+    --surface:    #1C1E25;
+    --rule-paper: #1C1D24;   /* whisper-faint on dark too */
+    --ink:        #EDEEF2;
+    --ink-soft:   #A6A8B2;
+    --rule:       #2C2E37;
+    --rule-bold:  #EDEEF2;
+    /* note: --rule-paper (whisper lines) re-set below */
 
-    --accent:        #E8845C;
-    --accent-hover:  #F0A07E;
-    --accent-ink:    #1A1714;
-    --accent-bg:     #2A1D16;
+    --accent:        #8FA6FF;
+    --accent-hover:  #AFC0FF;
+    --accent-ink:    #15161B;
+    --accent-bg:     #1B1F2E;
 
-    --head-bg:   rgba(26,23,20,.82);
+    --hl:        rgba(247,212,84,.34);   /* lifted so it still reads as amber on dark */
 
-    --live:      #7FCB94;  --live-bg:    #16271D;
-    --shipped:   #9DB4E0;  --shipped-bg: #1A2233;
-    --killed:    #E8845C;  --killed-bg:  #2A1D16;
-    --prog:      #A9A299;  --prog-bg:    #26221D;
+    --head-bg:   rgba(21,22,27,.82);
 
-    --focus:     #E8845C;
+    --live:      #6FCF97;  --live-bg:    #16271D;
+    --shipped:   #8FA6FF;  --shipped-bg: #1B1F2E;
+    --killed:    #E8897C;  --killed-bg:  #2A1A17;
+    --prog:      #A6A8B2;  --prog-bg:    #22242C;
+
+    --focus:     #8FA6FF;
   }
 }

@@ -22,8 +22,8 @@
 <title>Akash Kumar — operator, building toward project management</title>
 <meta name="description" content="I turn unclear ideas into execution. A technically-literate operator running ground-level operations in a founder's office — and building toward project management. A record of what I've shipped, killed, and have running now.">
 <meta name="author" content="Akash Kumar">
-<meta name="theme-color" content="#FAF8F4" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1A1714" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F7F6F1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15161B" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://akashkumar.netlify.app/">
 
 <!-- Open Graph -->
@@ -51,9 +51,9 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 
-<!-- Self-hosted fonts: preload the two faces used above the fold -->
-<link rel="preload" href="assets/fonts/fraunces-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Self-hosted fonts: preload the faces used above the fold -->
+<link rel="preload" href="assets/fonts/newsreader-roman.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ibm-plex-mono-500.woff2" as="font" type="font/woff2" crossorigin>
 
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="styles/tokens.css">
@@ -103,12 +103,15 @@
       <div>
         <span class="eyebrow">Operations &amp; execution · moving toward project management</span>
         <h1>I turn unclear ideas into <span class="ac">execution.</span></h1>
-        <p class="lead">I'm a final-year AI &amp; Data Science student who spends most of his time on the part where something has to get built, coordinated, or decided. Right now I run ground-level operations in a founder's office. Before that I started a company and shut it down on purpose. The degree means I understand the technology the work touches — it isn't the job. The job is making things happen.</p>
+        <p class="lead">I'm a final-year AI &amp; Data Science student, and I spend most of my time on the part where something has to get built, coordinated, or decided. Right now I run ground-level operations in a founder's office; before that I started a company and shut it down on purpose. The degree means I understand the technology the work touches — but the work itself is <span class="hl">making things happen.</span></p>
         <span class="loop">start <span class="ar">→</span> test <span class="ar">→</span> decide <span class="ar">→</span> move</span>
       </div>
       <aside class="hero-aside">
-        <!-- PHOTO: replace assets/akash.jpg with your own (keep filename, ~square crop). -->
-        <img class="portrait" src="assets/akash.jpg" width="300" height="300" alt="Akash Kumar" decoding="async">
+        <figure class="photo">
+          <!-- PHOTO: replace assets/akash.jpg with your own (keep filename, ~square crop). -->
+          <img src="assets/akash.jpg" width="232" height="232" alt="Akash Kumar" decoding="async">
+          <figcaption class="caption">me, lately</figcaption>
+        </figure>
       </aside>
     </div>
   </section>
@@ -121,7 +124,7 @@
       <p class="lead">What I've shipped, killed, and have running now.</p>
     </header>
 
-    <div class="ledger-legend" aria-hidden="true">
+    <div class="legend" aria-hidden="true">
       <span><i class="dot live"></i> Live — running now</span>
       <span><i class="dot shipped"></i> Shipped — built &amp; done</span>
       <span><i class="dot killed"></i> Killed — stopped on purpose</span>
@@ -135,10 +138,13 @@
           <span class="meta">2026 – present</span>
           <span class="role">Founder's Office · Assistant Executive</span>
         </div>
-        <div class="row-body">
-          <h3 class="entry">One Source International</h3>
-          <p class="out">I work next to the founder on the day-to-day: tracking and reconciling stock, catching gaps before they grow, and keeping the team's execution moving — while watching how decisions actually get made and how priorities shift when something breaks. The detail is the strategy.</p>
-          <!-- ADD REAL WIN/NUMBER HERE if true (exhibition ops, vendor coordination, databases built, workflows improved, sales supported). See CONTENT-TODO.md. -->
+        <div class="row-main">
+          <div class="row-body">
+            <h3 class="entry">One Source International</h3>
+            <p class="out">I work next to the founder on the day-to-day: tracking and reconciling stock, catching gaps before they grow, and keeping the team's execution moving — while watching how decisions actually get made and how priorities shift when something breaks. The detail is the strategy.</p>
+            <!-- ADD REAL WIN/NUMBER HERE if true (exhibition ops, vendor coordination, databases built, workflows improved, sales supported). See CONTENT-TODO.md. -->
+          </div>
+          <p class="row-note">Where I am now — <b>the closest I've been to how decisions actually get made.</b></p>
         </div>
       </article>
 
@@ -148,10 +154,13 @@
           <span class="meta">Feb 2026 – present</span>
           <span class="role">Campus Lead</span>
         </div>
-        <div class="row-body">
-          <h3 class="entry">µLearn Foundation</h3>
-          <p class="out">I lead the campus chapter — organising the work, coordinating with the foundation's enablers, and tracking who's actually engaged versus who just signed up. I ran our first offline orientation, which pulled in new registrations and got the chapter moving on the ground instead of on paper.</p>
-          <span class="metric">First offline orientation · 60+ students engaged</span>
+        <div class="row-main">
+          <div class="row-body">
+            <h3 class="entry">µLearn Foundation</h3>
+            <p class="out">I lead the campus chapter — organising the work, coordinating with the foundation's enablers, and tracking who's actually engaged versus who just signed up. I ran our first offline orientation, which pulled in new registrations and got the chapter moving on the ground instead of on paper.</p>
+            <span class="metric">First offline orientation · 60+ students engaged</span>
+          </div>
+          <p class="row-note">Leading peers, <b>not just tasks.</b></p>
         </div>
       </article>
 
@@ -161,11 +170,14 @@
           <span class="meta">Apr – Jul 2025</span>
           <span class="role">Founder</span>
         </div>
-        <div class="row-body">
-          <h3 class="entry">Jeevan Jhola</h3>
-          <p class="out">A reusable-bag venture built on a recharge-and-return model. I built the product and the website, recruited and led a team of interns, and put the idea under pressure with a concept deep-dive, a mock survey, and a lot of user reviews. The verdict was honest: people agreed it was a good idea, then reached for whatever was already in their hand. Human habit beat the product, so I stopped — on purpose — before pouring more into a launch.</p>
-          <!-- ADD REAL FIGURES HERE if true (interns led · mock-survey responses · reviews gathered). See CONTENT-TODO.md. -->
-          <p class="kill-note">The most useful thing I've decided so far was to stop.</p>
+        <div class="row-main">
+          <div class="row-body">
+            <h3 class="entry">Jeevan Jhola</h3>
+            <p class="out">A reusable-bag venture built on a recharge-and-return model. I built the product and the website, recruited and led a team of interns, and put the idea under pressure with a concept deep-dive, a mock survey, and a lot of user reviews. The verdict was honest: people agreed it was a good idea, then reached for whatever was already in their hand. Human habit beat the product, so I stopped — on purpose — before pouring more into a launch.</p>
+            <!-- ADD REAL FIGURES HERE if true (interns led · mock-survey responses · reviews gathered). See CONTENT-TODO.md. -->
+            <p class="kill-note">The most useful thing I've decided so far was to stop.</p>
+          </div>
+          <p class="row-note">The one I'm proudest of — <b>because I'm the one who ended it.</b></p>
         </div>
       </article>
 
@@ -175,10 +187,13 @@
           <span class="meta">May – Aug 2025</span>
           <span class="role">Technical Intern · iINT-'25</span>
         </div>
-        <div class="row-body">
-          <h3 class="entry">IIIT Kottayam</h3>
-          <p class="out">Selected for a competitive 13-week cohort. I built a working proof-of-concept Fake News Checker in Python using generative AI, applying NLP and text classification to flag misinformation. The useful lesson wasn't the model — it was deciding what "good enough" meant and measuring honestly against it.</p>
-          <span class="metric">13-week selective cohort · under Dr. Jayakrushna Sahoo</span>
+        <div class="row-main">
+          <div class="row-body">
+            <h3 class="entry">IIIT Kottayam</h3>
+            <p class="out">Selected for a competitive 13-week cohort. I built a working proof-of-concept Fake News Checker in Python using generative AI, applying NLP and text classification to flag misinformation. The useful lesson wasn't the model — it was deciding what "good enough" meant and measuring honestly against it.</p>
+            <span class="metric">13-week selective cohort · under Dr. Jayakrushna Sahoo</span>
+          </div>
+          <p class="row-note">Proof I understand the tech <b>I'd rather coordinate than only model.</b></p>
         </div>
       </article>
 
@@ -188,17 +203,20 @@
           <span class="meta">Nov 2024 – Jan 2025</span>
           <span class="role">HR Intern · Remote</span>
         </div>
-        <div class="row-body">
-          <h3 class="entry">VS-Kart</h3>
-          <p class="out">Screened resumes, coordinated interviews, built the onboarding materials, and ran employee-engagement initiatives. My first real look behind an org chart — and the first time I saw how quietly coordination breaks when nobody owns the follow-up.</p>
-          <!-- ADD REAL COUNTS HERE if true (resumes screened / interviews coordinated). See CONTENT-TODO.md. -->
+        <div class="row-main">
+          <div class="row-body">
+            <h3 class="entry">VS-Kart</h3>
+            <p class="out">Screened resumes, coordinated interviews, built the onboarding materials, and ran employee-engagement initiatives. My first real look behind an org chart — and the first time I saw how quietly coordination breaks when nobody owns the follow-up.</p>
+            <!-- ADD REAL COUNTS HERE if true (resumes screened / interviews coordinated). See CONTENT-TODO.md. -->
+          </div>
+          <p class="row-note">First look <b>behind the org chart.</b></p>
         </div>
       </article>
 
     </div>
 
     <p class="ledger-foot">
-      <span class="loop">start <span class="ar">→</span> test <span class="ar">→</span> decide <span class="ar">→</span> move</span>
+      <span class="loop">5 records &nbsp;·&nbsp; Live 2 &nbsp;·&nbsp; Shipped 2 &nbsp;·&nbsp; Killed 1</span>
       <span class="xref">Plus a <a href="#gamejam">Best Innovative Game</a> — the PM story is below ↓</span>
     </p>
   </section>
@@ -218,7 +236,7 @@
         <div><span class="fact-k">Constraint</span><span class="fact-v">48 hours, from scratch</span></div>
         <div><span class="fact-k">Outcome</span><span class="fact-v">Best Innovative Game</span></div>
       </div>
-      <p class="feat-body">Forty-eight hours, four people, one psychological-horror detective game built from nothing. My job wasn't the code — it was scope, priorities, comms, and playtesting. I held the line on the core mechanic and cut the features that wanted to creep in. We shipped on time, and we won. This is the bridge from operator to project manager: not a title I claimed, but a team I actually ran under a clock.</p>
+      <p class="feat-body">Forty-eight hours, four people, one psychological-horror detective game built from nothing. My job wasn't the code — it was scope, priorities, comms, and playtesting. I held the line on the core mechanic and cut the features that wanted to creep in. We shipped on time, and we won. A signal, not a title: it's the closest I've come to running a real project end to end.</p>
     </div>
   </section>
 
@@ -229,7 +247,7 @@
       <h2 id="h-arc">How I got here</h2>
     </header>
     <div class="prose">
-      <p>I grew up in Barh, near Patna in Bihar, and built the rest of myself in Kerala. Moving that far that young taught me the first operator's skill before I had a word for it: read a new system fast, figure out what actually runs it, then make yourself useful.</p>
+      <p>I grew up in Barh, near Patna in Bihar, and built the rest of myself in Kerala. Moving that far that young taught me the first operator's skill before I had a word for it: <span class="hl">read a new system fast,</span> figure out what actually runs it, then make yourself useful.</p>
       <p>The pattern shows up everywhere I've worked. At VS-Kart I watched coordination break for want of a follow-up. With Jeevan Jhola I learned what it costs to ignore reality, and what it's worth to face it. At IIIT Kottayam I built something technical and learned to measure it honestly. At the Game Jam I ran a team under a 48-hour clock and shipped. Now, in a founder's office, I'm doing the same loop on a bigger surface — closer to where the real decisions get made.</p>
       <p class="soft">I'm not calling myself a project manager yet; that's where I'm headed, and I'd rather earn the title than print it. What I am, today, is the person who turns an unclear idea into something that moves.</p>
     </div>
@@ -287,7 +305,6 @@
     <div class="facts-list">
       <div class="fr"><span class="fk">Degree</span><span class="fv">B.Tech, Artificial Intelligence &amp; Data Science <span class="s">— MES College of Engineering &amp; Technology (KTU). Expected Aug 2027.</span></span></div>
       <div class="fr"><span class="fk">Certificate</span><span class="fv">Google Project Management Professional <span class="s">— Coursera, in progress (~June 2026).</span></span></div>
-      <div class="fr"><span class="fk">Also</span><span class="fv">Learning How to Learn <span class="s">— Deep Teaching Solutions, with honors.</span></span></div>
     </div>
     <p class="arc-note">Most of my real learning has come from outside the classroom — a venture, the internships, and a founder's-office seat — using the technical foundation to understand the work, not to disappear into it.</p>
   </section>
@@ -296,20 +313,26 @@
   <section class="section contact reveal" id="contact" aria-labelledby="h-contact">
     <div class="wrap">
       <header class="sec-head"><span class="num">08</span><h2 id="h-contact">Get in touch</h2></header>
-      <p class="cl">I'm not chasing a title — I'm looking for <span class="ac">proximity to hard problems</span>, people I can learn from, and real responsibility.</p>
-      <p class="reply">If you're building something where execution matters and someone has to own the follow-through, that's the work I want. I reply to everything.</p>
-      <div class="cta-row">
-        <a class="btn" href="mailto:hrakashchauhan@gmail.com">Write to me <span class="ar" aria-hidden="true">→</span></a>
-        <a class="btn-ghost" href="https://wa.me/919709799899?text=Hi%20Akash%2C%20I%20saw%20your%20portfolio%20%E2%80%94%20would%20love%20to%20connect." target="_blank" rel="noopener noreferrer">WhatsApp <span class="ar" aria-hidden="true">→</span></a>
+      <div class="contact-grid">
+        <div class="contact-left">
+          <p class="cl">I'm not chasing a title — I'm looking for <span class="ac">proximity to hard problems</span>, people I can learn from, and real responsibility.</p>
+          <p class="reply">If you're building something where execution matters and someone has to own the follow-through, that's the work I want. I reply to everything.</p>
+        </div>
+        <div class="contact-right">
+          <div class="cta-row">
+            <a class="btn" href="mailto:hrakashchauhan@gmail.com">Write to me <span class="ar" aria-hidden="true">→</span></a>
+            <a class="btn-ghost" href="https://wa.me/919709799899?text=Hi%20Akash%2C%20I%20saw%20your%20portfolio%20%E2%80%94%20would%20love%20to%20connect." target="_blank" rel="noopener noreferrer">WhatsApp <span class="ar" aria-hidden="true">→</span></a>
+          </div>
+          <div class="links">
+            <a href="mailto:hrakashchauhan@gmail.com">hrakashchauhan@gmail.com</a>
+            <a href="tel:+919709799899">+91 97097 99899</a>
+            <a href="https://www.linkedin.com/in/youfoundakash" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
+            <a href="https://github.com/hrakashchauhan" target="_blank" rel="noopener noreferrer">GitHub →</a>
+            <span>Ernakulam, Kerala, India</span>
+          </div>
+          <span class="seeking">Seeking: operations · founder's office · project / program management · technically-literate coordination &nbsp;·&nbsp; remote / hybrid / on-site &nbsp;·&nbsp; available now.</span>
+        </div>
       </div>
-      <div class="links">
-        <a href="mailto:hrakashchauhan@gmail.com">hrakashchauhan@gmail.com</a>
-        <a href="tel:+919709799899">+91 97097 99899</a>
-        <a href="https://www.linkedin.com/in/youfoundakash" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
-        <a href="https://github.com/hrakashchauhan" target="_blank" rel="noopener noreferrer">GitHub →</a>
-        <span>Ernakulam, Kerala, India</span>
-      </div>
-      <span class="seeking">Seeking: operations · founder's office · project / program management · technically-literate coordination &nbsp;·&nbsp; remote / hybrid / on-site &nbsp;·&nbsp; available now.</span>
     </div>
   </section>
 
@@ -318,7 +341,7 @@
 <footer class="foot wrap">
   <span class="sig">— Akash · Kerala, India · Ops → PM</span>
   <span>start → test → decide → move</span>
-  <span>Set in Fraunces, Inter &amp; IBM Plex Mono. No analytics, no cookies, no trackers. · 2026</span>
+  <span>Set in Newsreader, Inter &amp; IBM Plex Mono. No analytics, no cookies, no trackers. · 2026</span>
 </footer>
 
 <script src="js/main.js" defer></script>

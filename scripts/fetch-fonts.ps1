@@ -8,8 +8,10 @@ $out  = Join-Path $root 'assets\fonts'
 New-Item -ItemType Directory -Force -Path $out | Out-Null
 
 $ua  = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
-# Fraunces is variable (one file covers weight 400–600); Inter + IBM Plex Mono are static cuts.
-$api = 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap'
+# Newsreader is variable (one roman file covers the weight axis, plus one italic); Inter is variable;
+# IBM Plex Mono is a static cut. NOTE: assets/fonts/fonts.css is hand-maintained (variable faces are
+# deduped to one file with a font-weight RANGE) — re-running this is for refreshing the woff2 bytes.
+$api = 'https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap'
 
 try {
   $css = (Invoke-WebRequest -Uri $api -UserAgent $ua -UseBasicParsing).Content
@@ -19,7 +21,7 @@ try {
   return
 }
 
-$slug  = @{ 'Fraunces' = 'fraunces'; 'Inter' = 'inter'; 'IBM Plex Mono' = 'ibm-plex-mono' }
+$slug  = @{ 'Newsreader' = 'newsreader'; 'Inter' = 'inter'; 'IBM Plex Mono' = 'ibm-plex-mono' }
 $rx    = [regex]"/\*\s*(?<sub>[\w-]+)\s*\*/\s*@font-face\s*\{(?<body>[^}]*)\}"
 $faces = @()
 foreach ($m in $rx.Matches($css)) {

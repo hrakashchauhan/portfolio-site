@@ -1,22 +1,24 @@
 # Akash Kumar — The Operating Ledger
 
 A personal site for **Akash Kumar**: a technically-literate operator moving toward project management. The concept
-is **The Operating Ledger** — a calm, editorial record whose single signature device is a *status ledger*: every
-real role is tagged `LIVE` / `SHIPPED` / `KILLED`, with the Jeevan Jhola shutdown owned as a deliberate `KILLED`
-decision (judgment, not a gap), and the Global Game Jam win featured as the one concrete project-management
-artifact. The form itself is the proof. Static, fast, and dependency-free.
+is **The Field Ledger** — a warm notebook record (ruled paper, a taped photo, right-margin annotations, one
+soft-yellow highlighter) over a disciplined **blue-ink** status ledger: every real role is tagged `LIVE` /
+`SHIPPED` / `KILLED`, with the Jeevan Jhola shutdown owned as a deliberate `KILLED` decision (judgment, not a gap),
+and the Global Game Jam win featured as the one concrete project-management artifact. The form itself is the proof.
+Static, fast, and dependency-free.
 
-> Design note: refined to "institutional calm" — warm porcelain + ink with one terracotta accent, generous
-> whitespace, and exactly one organizing device (the ledger row). Earlier gimmicks (ticker, boarding pass, gantt
-> bars, dark dashboard, floating button) were deleted to concentrate the one strong idea. The direction was chosen
-> by scoring four world-class candidate directions across recruiter / founder / designer / feasibility lenses.
+> Design note: a fusion of two looks the owner liked — a warm "Field Notes" notebook and a clean blue status
+> ledger. One ink-blue accent (`#2B3A87`) on warm ruled paper; warmth comes from ~3 restrained devices (ruled-paper
+> texture, a taped "me, lately" photo, mono margin annotations, one highlighter), never gimmicks. The direction was
+> chosen by scoring five candidate directions across a critic panel, then hardened by a red-team and a visual-QA
+> panel reading the actual renders.
 
 ## What it is
 - A single static page: `index.html` + `styles/` + `js/` + `assets/`. **No build step, no framework, no tracker.**
-- **Self-hosted fonts** — Fraunces (editorial serif display), Inter (body), IBM Plex Mono (labels/ledger). Zero
-  third-party requests at runtime.
-- **Fully readable with JavaScript disabled.** WCAG 2.1 AA (one terracotta accent; status shown by text label
-  + glyph + colour, never colour alone). Responsive 360→1440. Print styles included.
+- **Self-hosted fonts** — Newsreader (editorial serif, display + body), Inter (UI/labels), IBM Plex Mono
+  (ledger machinery). Zero third-party requests at runtime.
+- **Fully readable with JavaScript disabled.** WCAG 2.1 AA (one ink-blue accent; status shown by text label
+  + glyph + colour, never colour alone). System dark mode, zero JS. Responsive 360→1440. Print styles included.
 - **Automatic light / dark theme** — follows the visitor's OS setting via `prefers-color-scheme`, zero JavaScript.
   Both themes share the same single accent and keep AA contrast (the palette lives in `styles/tokens.css`).
 
@@ -65,7 +67,7 @@ exactly where true figures go. **Only ever enter true values.**
 
 ## Regenerating assets (optional)
 Both scripts render templates with headless Chrome/Edge — no Node/Python needed.
-- Fonts: `powershell -ExecutionPolicy Bypass -File scripts\fetch-fonts.ps1` (downloads Fraunces + Inter + IBM Plex
+- Fonts: `powershell -ExecutionPolicy Bypass -File scripts\fetch-fonts.ps1` (downloads Newsreader + Inter + IBM Plex
   Mono as latin woff2 into `assets/fonts/` — already committed).
 - OG image + favicons: `powershell -ExecutionPolicy Bypass -File scripts\generate-assets.ps1`
   (sources in `scripts/asset-src/`; it never overwrites your real `akash.jpg`).
