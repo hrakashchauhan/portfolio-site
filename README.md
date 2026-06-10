@@ -51,8 +51,8 @@ then open <http://localhost:8080/> (Ctrl+C to stop). `npx serve` or `python -m h
 ## The three things you'll edit
 
 ### 1) Set your domain
-Replace the placeholder `https://akashkumar.netlify.app/` everywhere it appears (each spot is flagged with a
-`DOMAIN:` comment). Quickest: a project-wide find-and-replace of `akashkumar.netlify.app`. Locations:
+✅ Done — the live domain is `https://youfoundakash.netlify.app/` and it's wired everywhere. If you ever move to a
+custom domain, find-and-replace `youfoundakash.netlify.app` (each spot is flagged with a `DOMAIN:` comment). Locations:
 - `index.html` — `canonical`, `og:url`, `og:image`, `twitter:image`, JSON-LD `url` + `image` (one comment block lists them)
 - `robots.txt` — the `Sitemap:` line
 - `sitemap.xml` — the `<loc>` value

@@ -31,7 +31,7 @@ HTML comments in `index.html`, inside the relevant **ledger row**.
 ## Configuration
 6. **Google PM certificate** — listed as *in progress, ~June 2026*. Change to "completed" once it actually is.
 7. **Photo** — `assets/akash.jpg` (560×560) drives the hero and the OG/social card. Overwrite that one file to change it.
-8. **Domain** — currently the placeholder `https://akashkumar.netlify.app/`. See README → *Set your domain*.
+8. **Domain** — ✅ done: live at `https://youfoundakash.netlify.app/`, wired into canonical/OG/sitemap/robots.
 
 ## Optional upgrade
 9. **More ledger rows / proof links** — real shipped artifacts (the Jeevan Jhola site, a dashboard, a Game Jam build
