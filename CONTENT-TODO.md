@@ -13,12 +13,13 @@ HTML comments in `index.html`, inside the relevant **ledger row**.
 - **µLearn Foundation** — Campus Lead; *60+ students at the first offline orientation*.
 - **Global Game Jam Kerala** — Best Innovative Game; *Project Manager / Producer · 4-person team · 48 hours* (the standout PM artifact, its own feature section).
 - **IIIT Kottayam** — Technical Intern, iINT-'25; *13-week selective cohort under Dr. Jayakrushna Sahoo*; Fake News Checker (Python + GenAI/NLP).
-- **Jeevan Jhola** — Founder; built, tested (concept deep-dive + mock survey + reviews), shut it down on purpose.
+- **Jeevan Jhola** — Founder; built, tested (concept deep-dive + mock survey + reviews), shut it down on purpose. Now also a full Problem → Approach → Decision → Outcome → Learning case study ("The decision record").
 - **VS-Kart** — HR Intern (Remote).
+- **Field notes** — five numbered observations (No. 03–19, non-sequential on purpose); all opinions in Akash's voice, no factual claims.
 - **Testimonial** — Major Deepak Raj ("Builds the staircase while climbing it…"), verified.
 
 ## Optional numbers (strengthen the proof — only if true)
-1. **Jeevan Jhola** → `✕ Killed` ledger row, `ADD REAL FIGURES HERE`: interns led · mock-survey responses · reviews gathered.
+1. **Jeevan Jhola** → the **"The decision record"** case-study section, `ADD REAL FIGURES HERE`: interns led · mock-survey responses · reviews gathered. Until then the section says "exact counts on request" — an honest slot, not a fake.
 2. **One Source International** → `● Live` ledger row, `ADD REAL WIN/NUMBER HERE`: exhibition ops · vendor coordination · databases built · workflows improved · sales supported — one true line, active verbs.
 3. **VS-Kart** → `✓ Shipped` ledger row, `ADD REAL COUNTS HERE`: resumes screened / interviews coordinated.
 4. **IIIT Kottayam** → if you have it: model accuracy + dataset size (e.g. "~88% on a 10k-example set").
