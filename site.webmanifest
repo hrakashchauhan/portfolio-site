@@ -1,13 +1,13 @@
 {
-  "name": "Akash Kumar — The Field Ledger",
+  "name": "Akash Kumar — SIGNAL",
   "short_name": "Akash Kumar",
   "description": "A technically-literate operator moving toward project management. Operations in a founder's office; built and killed a startup on purpose.",
   "lang": "en",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#F7F6F1",
-  "theme_color": "#F7F6F1",
+  "background_color": "#0F0D0A",
+  "theme_color": "#0F0D0A",
   "icons": [
     { "src": "assets/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" },
     { "src": "assets/favicon.png", "type": "image/png", "sizes": "512x512", "purpose": "any" },

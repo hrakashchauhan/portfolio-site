@@ -1,96 +1,93 @@
 /* ============================================================
-   THE FIELD LEDGER — design tokens
-   A warm notebook record with a blue-ink ledger spine.
-   Warm ruled paper + ONE ink-blue accent (#2B3A87) + muted-red KILLED.
-   Newsreader serif (display + body) · Inter (UI/labels) · IBM Plex Mono (ledger).
+   SIGNAL — design tokens
+   Kinetic type on warm black. "The after-hours workshop."
 
-   Contrast on --paper (#F7F6F1):
-     ink ~16.4:1 · ink-soft ~6.1:1 · accent/pen ~9.4:1 (AAA)
-     white-on-pen button ~10.2:1 · live ~6.0:1 · shipped ~9.4:1 · killed ~5.5:1
+   Psychology of the palette:
+     warm black  — the workshop after hours, where the work actually happens
+                   (deliberately NOT blue-black: blue-blacks read "tech demo")
+     bone ivory  — honest paper, inverted
+     signal amber— the highlighter that marks what matters + the work-site
+                   signal color (operations) + earned gold (he won; "I'd
+                   rather earn the title than print it")
+     ember red   — spent on exactly one thing: the kill decision
+
+   Contrast on --bg (#0F0D0A), WCAG relative-luminance math:
+     ink      #F4EFE4  ~16.9:1  (AAA)
+     ink-soft #A89F8D   ~7.4:1  (AAA small text)
+     ink-faint#837B6D   ~4.6:1  (AA small — meta/micro on --bg ONLY,
+                                 not on raised surfaces)
+     accent   #F2B63C  ~10.6:1  (AAA)
+     accent-ink #14110B on amber ~10.3:1 (AAA — text on filled button)
+     live     #46C172   ~8.4:1  · killed #FF5A47 ~6.3:1  (both AA+)
    Status is ALWAYS triple-encoded (text label + glyph + colour) — SC 1.4.1.
    ============================================================ */
 :root {
-  /* surface & ink — warm paper, not porcelain */
-  --bg:         #F7F6F1;   /* warm ruled paper */
-  --surface:    #FFFFFF;
-  --rule-paper: #F1EFE8;   /* ruled lines — whisper-faint so they never cut through reading text */
-  --ink:        #16181D;
-  --ink-soft:   #5B5D66;   /* secondary + marginalia */
-  --rule:       #E4E1D6;   /* hairlines & grid lines */
-  --rule-bold:  #16181D;   /* ledger "total" rules */
+  color-scheme: dark;
 
-  /* the one accent — ink-blue pen (the reference's pen) */
-  --accent:        #2B3A87;
-  --accent-hover:  #1C285F;
-  --accent-ink:    #FFFFFF;
-  --accent-bg:     #ECEEF6;  /* cool-blue wash for the contact band */
+  /* surface & ink */
+  --bg:        #0F0D0A;   /* warm black canvas */
+  --bg-raise:  #17140F;   /* raised surfaces / cards */
+  --bg-deep:   #0A0908;   /* intro overlay · footer well */
+  --ink:       #F4EFE4;   /* bone ivory */
+  --ink-soft:  #A89F8D;   /* warm gray — secondary text */
+  --ink-faint: #837B6D;   /* tertiary meta (AA on --bg only) */
+  --hairline:  #2A251D;   /* rules — decorative */
+  --hairline-2:#3A332A;   /* hover-state rules */
 
-  /* the one warmth tint — soft-yellow highlighter (reference value) */
-  --hl:        rgba(247,212,84,.55);
+  /* the one accent — signal amber */
+  --accent:     #F2B63C;
+  --accent-hot: #FFCE5C;             /* hover */
+  --accent-ink: #14110B;             /* text ON amber */
+  --wash:       rgba(242,182,60,.05);  /* row-ignite hover */
+  --hl-band:    rgba(242,182,60,.17);  /* highlight sweep band */
+  --ghost:      rgba(244,239,228,.05); /* oversized ghost numerals */
 
-  /* translucent sticky-masthead fill (matches --bg) */
-  --head-bg:   rgba(247,246,241,.86);
+  /* status — never colour alone */
+  --live:      #46C172;  --live-dim:    rgba(70,193,114,.13);
+  --shipped:   #F4EFE4;  --shipped-dim: rgba(244,239,228,.10);
+  --killed:    #FF5A47;  --killed-dim:  rgba(255,90,71,.12);
 
-  /* status palette — quiet, never colour alone */
-  --live:      #256B43;  --live-bg:    #E7EFE9;
-  --shipped:   #2B3A87;  --shipped-bg: #E7E9F4;
-  --killed:    #A32B2B;  --killed-bg:  #F6E7E7;   /* pure cool red (hue 0deg), unambiguously NOT terracotta */
-  --prog:      #5B5D66;  --prog-bg:    #EEEBE2;
+  --focus:     #F2B63C;
 
-  --focus:     #2B3A87;
+  /* chrome */
+  --hud-bg:    rgba(15,13,10,.78);
 
   /* type */
-  --display: 'Newsreader', Georgia, 'Times New Roman', serif;
-  --serif:   'Newsreader', Georgia, 'Times New Roman', serif;
+  --display: 'Bricolage Grotesque', 'Arial Narrow', Impact, system-ui, sans-serif;
   --sans:    'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --mono:    'IBM Plex Mono', ui-monospace, 'Cascadia Code', Consolas, 'Courier New', monospace;
 
-  /* fluid type scale — ~1.25 ratio, 8px baseline, 360→1440 (serif body → generous leading) */
-  --fs-display:        clamp(1.85rem, 1.0rem + 4.0vw, 4.4rem);
-  --fs-display-feature: clamp(1.5rem, 1.2rem + 1.4vw, 2rem);
-  --fs-h2:      clamp(1.65rem, 1.3rem + 1.5vw, 2.3rem);
-  --fs-h3:      clamp(1.18rem, 1.08rem + 0.4vw, 1.4rem);
-  --fs-lead:    clamp(1.15rem, 1.05rem + 0.45vw, 1.3rem);
-  --fs-body:    1.075rem;
+  /* fluid type scale (360 → 1440) */
+  --fs-hero:    clamp(2.7rem, 0.9rem + 8.8vw, 8.4rem);
+  --fs-h2:      clamp(2.0rem, 1.4rem + 2.8vw, 3.6rem);
+  --fs-entry:   clamp(1.6rem, 1.1rem + 2.3vw, 3.2rem);
+  --fs-award:   clamp(1.7rem, 1.2rem + 2.4vw, 3.4rem);
+  --fs-quote:   clamp(1.5rem, 1.1rem + 2.0vw, 2.6rem);
+  --fs-ghost:   clamp(6rem, 16vw, 17rem);
+  --fs-lead:    clamp(1.08rem, 1rem + 0.45vw, 1.32rem);
+  --fs-body:    1.0625rem;
   --fs-meta:    0.8125rem;
   --fs-micro:   0.72rem;
 
   /* layout & rhythm */
-  --maxw:   1080px;
-  --pad:    clamp(20px, 5vw, 28px);
-  --rhythm: clamp(64px, 9vh, 116px);
-  --head-h: 60px;
-}
+  --maxw:    1200px;
+  --pad:     clamp(20px, 5vw, 32px);
+  --rhythm:  clamp(96px, 12vh, 168px);
+  --hud-h:   64px;
 
-/* ============================================================
-   DARK THEME — "after-hours notebook." System-driven, zero JS.
-   accent #8FA6FF ~7.8:1 · ink-soft ~7.6:1 · live ~9.5:1 · killed ~7.1:1 — all AA+.
-   ============================================================ */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg:         #15161B;
-    --surface:    #1C1E25;
-    --rule-paper: #1C1D24;   /* whisper-faint on dark too */
-    --ink:        #EDEEF2;
-    --ink-soft:   #A6A8B2;
-    --rule:       #2C2E37;
-    --rule-bold:  #EDEEF2;
-    /* note: --rule-paper (whisper lines) re-set below */
+  /* motion vocabulary — ONE language everywhere */
+  --ease-out:   cubic-bezier(.16, 1, .3, 1);   /* reveals, rises */
+  --ease-inout: cubic-bezier(.65, 0, .35, 1);  /* sweeps, wipes, intro exit */
+  --t-micro:  180ms;
+  --t-hover:  280ms;
+  --t-reveal: 750ms;
+  --t-sweep:  600ms;
 
-    --accent:        #8FA6FF;
-    --accent-hover:  #AFC0FF;
-    --accent-ink:    #15161B;
-    --accent-bg:     #1B1F2E;
-
-    --hl:        rgba(247,212,84,.34);   /* lifted so it still reads as amber on dark */
-
-    --head-bg:   rgba(21,22,27,.82);
-
-    --live:      #6FCF97;  --live-bg:    #16271D;
-    --shipped:   #8FA6FF;  --shipped-bg: #1B1F2E;
-    --killed:    #E8897C;  --killed-bg:  #2A1A17;
-    --prog:      #A6A8B2;  --prog-bg:    #22242C;
-
-    --focus:     #8FA6FF;
-  }
+  /* z-order */
+  --z-progress: 85;
+  --z-hud:      80;
+  --z-rail:     70;
+  --z-toast:    60;
+  --z-intro:    90;
+  --z-cursor:   100;
 }

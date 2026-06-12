@@ -1,26 +1,28 @@
-# Akash Kumar — The Operating Ledger
+# Akash Kumar — SIGNAL
 
 A personal site for **Akash Kumar**: a technically-literate operator moving toward project management. The concept
-is **The Field Ledger** — a warm notebook record (ruled paper, a taped photo, right-margin annotations, one
-soft-yellow highlighter) over a disciplined **blue-ink** status ledger: every real role is tagged `LIVE` /
-`SHIPPED` / `KILLED`, with the Jeevan Jhola shutdown owned as a deliberate `KILLED` decision (judgment, not a gap),
-and the Global Game Jam win featured as the one concrete project-management artifact. The form itself is the proof.
-Static, fast, and dependency-free.
+is **SIGNAL** — kinetic type on warm black ("the after-hours workshop"): massive Bricolage Grotesque headlines that
+move like a machine, one **signal-amber** accent (`#F2B63C` — the highlighter that marks what matters, the work-site
+signal colour, and earned gold), and an ember-red `KILLED` reserved for exactly one thing. Every real role is tagged
+`LIVE` / `SHIPPED` / `KILLED`, the Jeevan Jhola shutdown is owned as a deliberate decision (its own evidence-style
+case study with a rubber-stamp), and the Global Game Jam win is featured as the one concrete PM artifact with a
+48-hour progress bar. The form itself is the proof. Static, fast, and dependency-free.
 
-> Design note: a fusion of two looks the owner liked — a warm "Field Notes" notebook and a clean blue status
-> ledger. One ink-blue accent (`#2B3A87`) on warm ruled paper; warmth comes from ~3 restrained devices (ruled-paper
-> texture, a taped "me, lately" photo, mono margin annotations, one highlighter), never gimmicks. The direction was
-> chosen by scoring five candidate directions across a critic panel, then hardened by a red-team and a visual-QA
-> panel reading the actual renders.
+> Design note: a ground-up v5 redesign (June 2026) replacing the warm-paper "Field Ledger". Direction chosen by
+> the owner from four candidates ("SIGNAL — kinetic type"); colour chosen psychologically (no technical blue, by
+> his request). Motion: an intro stamp (once per session), per-line hero mask reveals, a canvas ember-field, a
+> scroll-velocity marquee, staggered ledger reveals with parallax ghost numerals, a scroll-drawn decision spine,
+> odometer counters, magnetic buttons and a labelled custom cursor — all vanilla JS, all skippable, all of it
+> degrading to a fully readable static page.
 
 ## What it is
 - A single static page: `index.html` + `styles/` + `js/` + `assets/`. **No build step, no framework, no tracker.**
-- **Self-hosted fonts** — Newsreader (editorial serif, display + body), Inter (UI/labels), IBM Plex Mono
-  (ledger machinery). Zero third-party requests at runtime.
-- **Fully readable with JavaScript disabled.** WCAG 2.1 AA (one ink-blue accent; status shown by text label
-  + glyph + colour, never colour alone). System dark mode, zero JS. Responsive 360→1440. Print styles included.
-- **Automatic light / dark theme** — follows the visitor's OS setting via `prefers-color-scheme`, zero JavaScript.
-  Both themes share the same single accent and keep AA contrast (the palette lives in `styles/tokens.css`).
+- **Self-hosted fonts** — Bricolage Grotesque (variable; display), Inter (variable; body/UI), IBM Plex Mono
+  (machinery). Zero third-party requests at runtime.
+- **Fully readable with JavaScript disabled** (html.no-js shows everything; a 3s failsafe reveals all if JS dies).
+  `prefers-reduced-motion` gets a fully static page. WCAG 2.1 AA on warm black (contrast math in
+  `styles/tokens.css`; status shown by text label + glyph + colour, never colour alone). Responsive 360→1440.
+  Print styles included. Dark-only identity by design.
 
 See `CONTENT-TODO.md` for the real facts still to add.
 
@@ -67,8 +69,8 @@ exactly where true figures go. **Only ever enter true values.**
 
 ## Regenerating assets (optional)
 Both scripts render templates with headless Chrome/Edge — no Node/Python needed.
-- Fonts: `powershell -ExecutionPolicy Bypass -File scripts\fetch-fonts.ps1` (downloads Newsreader + Inter + IBM Plex
-  Mono as latin woff2 into `assets/fonts/` — already committed).
+- Fonts: `powershell -ExecutionPolicy Bypass -File scripts\fetch-fonts.ps1` (downloads Bricolage Grotesque + Inter
+  + IBM Plex Mono as latin woff2 into `assets/fonts/` — already committed).
 - OG image + favicons: `powershell -ExecutionPolicy Bypass -File scripts\generate-assets.ps1`
   (sources in `scripts/asset-src/`; it never overwrites your real `akash.jpg`).
 
