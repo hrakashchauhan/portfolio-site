@@ -4,24 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Set html.js as early as possible so motion hides content ONLY when JS is on.
+<!-- Set html.js as early as possible so reveal motion hides content ONLY when JS is on.
      With JS disabled, .js is never added and every section renders fully visible.
-     The intro overlay is armed here too (before first paint) and is triple-failsafed:
-     sessionStorage (once per session) + reduced-motion check + a hard timeout that
-     removes it even if js/main.js never loads. -->
+     A hard 3s failsafe reveals everything even if js/main.js never boots (404/blocked). -->
 <script>
 (function () {
   var d = document.documentElement;
   d.className = d.className.replace('no-js', 'js');
-  try {
-    var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!rm && !sessionStorage.getItem('v5-intro')) {
-      sessionStorage.setItem('v5-intro', '1');
-      d.className += ' intro-live';
-      setTimeout(function () { d.classList.remove('intro-live'); }, 2600);
-    }
-  } catch (e) { /* storage blocked → no intro, page renders normally */ }
-  /* if js/main.js never boots (404, blocked), reveal everything after 3s */
   setTimeout(function () {
     if (!d.classList.contains('booted')) { d.classList.add('reveal-all'); }
   }, 3000);
@@ -36,19 +25,19 @@
 <title>Akash Kumar — operator, building toward project management</title>
 <meta name="description" content="I turn unclear ideas into execution. A technically-literate operator running ground-level operations in a founder's office — and building toward project management. A record of what I've shipped, killed, and have running now.">
 <meta name="author" content="Akash Kumar">
-<meta name="theme-color" content="#0F0D0A">
+<meta name="theme-color" content="#F4EFE3">
 <link rel="canonical" href="https://youfoundakash.netlify.app/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Akash Kumar">
 <meta property="og:title" content="Akash Kumar — operator, building toward project management">
-<meta property="og:description" content="I turn unclear ideas into execution. A technically-literate operator running operations in a founder's office, building toward project management. Live · shipped · killed.">
+<meta property="og:description" content="I turn unclear ideas into execution. A technically-literate operator running operations in a founder's office, building toward project management. A record of work: live · shipped · killed.">
 <meta property="og:url" content="https://youfoundakash.netlify.app/">
 <meta property="og:image" content="https://youfoundakash.netlify.app/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Akash Kumar — I turn unclear ideas into execution. A record of work: live, shipped, killed.">
+<meta property="og:image:alt" content="Akash Kumar — a working record. I turn unclear ideas into execution: live, shipped, killed.">
 <meta property="og:locale" content="en_US">
 
 <!-- Twitter -->
@@ -56,7 +45,7 @@
 <meta name="twitter:title" content="Akash Kumar — operator, building toward project management">
 <meta name="twitter:description" content="I turn unclear ideas into execution. Operations in a founder's office, building toward project management.">
 <meta name="twitter:image" content="https://youfoundakash.netlify.app/assets/og-image.png">
-<meta name="twitter:image:alt" content="Akash Kumar — a record of work shipped, killed, and live.">
+<meta name="twitter:image:alt" content="Akash Kumar — a working record of work shipped, killed, and live.">
 
 <!-- Icons + manifest -->
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -65,7 +54,7 @@
 <link rel="manifest" href="site.webmanifest">
 
 <!-- Self-hosted fonts: preload the faces used above the fold -->
-<link rel="preload" href="assets/fonts/bricolage-grotesque-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/ibm-plex-mono-500.woff2" as="font" type="font/woff2" crossorigin>
 
 <link rel="stylesheet" href="assets/fonts/fonts.css">
@@ -97,198 +86,172 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- E0 · intro stamp — exists only for one viewing per session; html.intro-live shows it -->
-<div class="intro" aria-hidden="true">
-  <div class="intro-inner">
-    <p class="intro-name"><span>A</span><span>K</span><span>A</span><span>S</span><span>H</span> <span>K</span><span>U</span><span>M</span><span>A</span><span>R</span></p>
-    <span class="intro-rule"></span>
-    <p class="intro-meta mono">PORTFOLIO · ERNAKULAM · 2026</p>
-  </div>
-</div>
-
-<!-- scroll progress -->
+<!-- reading-progress rule (top edge, editor's red) -->
 <div class="progress" aria-hidden="true"><span class="progress-fill" data-progress></span></div>
 
-<!-- E1 · HUD -->
-<header class="hud">
-  <a class="brand" href="#top">Akash Kumar <span class="brand-arrow" aria-hidden="true">→</span></a>
-  <div class="hud-right">
-    <span class="hud-meta mono"><span data-clock>··:··</span> IST&nbsp;·&nbsp;<i class="dot live" aria-hidden="true"></i> AVAILABLE</span>
-    <a class="btn-ghost" href="#contact" data-cursor="GO">Get in touch</a>
+<!-- ── Masthead ──────────────────────────────────────────────────────────── -->
+<header class="masthead">
+  <div class="wrap masthead-bar">
+    <a class="brand" href="#top">Akash Kumar</a>
+    <div class="masthead-right">
+      <span class="dateline mono">Ernakulam · <span data-clock>··:··</span> IST&nbsp;·&nbsp;<i class="dot live" aria-hidden="true"></i> Available</span>
+      <a class="head-link mono" href="#contact">[ Get in touch ]</a>
+    </div>
   </div>
 </header>
 
-<!-- section rail (≥1100px) -->
-<nav class="rail" aria-label="Sections">
-  <a href="#work" data-rail="work" aria-label="01 — A record of work">01</a>
-  <a href="#casestudy" data-rail="casestudy" aria-label="02 — The decision record">02</a>
-  <a href="#gamejam" data-rail="gamejam" aria-label="03 — When I had to actually run it">03</a>
-  <a href="#arc" data-rail="arc" aria-label="04 — How I got here">04</a>
-  <a href="#bring" data-rail="bring" aria-label="05 — What I bring">05</a>
-  <a href="#principles" data-rail="principles" aria-label="06 — How I work">06</a>
-  <a href="#says" data-rail="says" aria-label="07 — In someone's words">07</a>
-  <a href="#notes" data-rail="notes" aria-label="08 — Field notes">08</a>
-  <a href="#foundations" data-rail="foundations" aria-label="09 — Foundations">09</a>
-  <a href="#contact" data-rail="contact" aria-label="10 — Get in touch">10</a>
+<!-- left margin rail — the running section index (≥1100px) -->
+<nav class="rail mono" aria-label="Sections">
+  <a href="#work" data-rail="work"><span>01</span></a>
+  <a href="#casestudy" data-rail="casestudy"><span>02</span></a>
+  <a href="#gamejam" data-rail="gamejam"><span>03</span></a>
+  <a href="#arc" data-rail="arc"><span>04</span></a>
+  <a href="#bring" data-rail="bring"><span>05</span></a>
+  <a href="#principles" data-rail="principles"><span>06</span></a>
+  <a href="#says" data-rail="says"><span>07</span></a>
+  <a href="#notes" data-rail="notes"><span>08</span></a>
+  <a href="#foundations" data-rail="foundations"><span>09</span></a>
+  <a href="#contact" data-rail="contact"><span>10</span></a>
 </nav>
 
 <main id="main">
 
-  <!-- E2 · hero -->
+  <!-- ── Hero / opening of the record ────────────────────────────────────── -->
   <section class="hero" id="top">
-    <canvas class="embers" data-embers aria-hidden="true"></canvas>
     <div class="wrap hero-grid">
-      <p class="eyebrow mono">Operations &amp; execution <span class="ar" aria-hidden="true">→</span> project management</p>
-      <h1 class="hero-h">
-        <span class="line"><span class="line-in">I turn</span></span>
-        <span class="line"><span class="line-in">unclear ideas</span></span>
-        <span class="line"><span class="line-in">into</span></span>
-        <span class="line"><span class="line-in"><em class="exec">execution</em><i class="caret" aria-hidden="true">_</i></span></span>
-      </h1>
-      <div class="hero-low">
-        <div class="hero-copy">
-          <p class="lead">I spend most of my time on the part where something has to get built, coordinated, or decided. Right now I run ground-level operations in a founder's office; before that I started a company and shut it down on purpose. I'm a final-year AI &amp; Data Science student — the degree means I understand the technology the work touches, but the work itself is <span class="hl">making things happen.</span></p>
-          <p class="scroll-cue mono" aria-hidden="true">SCROLL <span class="ar">↓</span></p>
-        </div>
-        <figure class="photo">
-          <!-- PHOTO: replace assets/akash.jpg with your own (keep filename, ~square crop). -->
-          <span class="tick t-tl" aria-hidden="true"></span><span class="tick t-tr" aria-hidden="true"></span>
-          <span class="tick t-bl" aria-hidden="true"></span><span class="tick t-br" aria-hidden="true"></span>
-          <img src="assets/akash.jpg" width="232" height="232" alt="Akash Kumar" decoding="async">
-          <figcaption class="caption mono">me, lately</figcaption>
-        </figure>
+      <div class="hero-copy">
+        <p class="dateline-lead mono reveal">A working record · Ernakulam · 2026</p>
+        <p class="eyebrow mono reveal">Operations &amp; execution <span class="ar" aria-hidden="true">→</span> project management</p>
+        <h1 class="hero-h reveal">I turn unclear ideas into <em class="exec">execution</em>.</h1>
+        <p class="lead reveal">I spend most of my time on the part where something has to get built, coordinated, or decided. Right now I run ground-level operations in a founder's office; before that I started a company and shut it down on purpose. I'm a final-year AI &amp; Data Science student — the degree means I understand the technology the work touches, but the work itself is <span class="hl">making things happen.</span></p>
+        <p class="strapline mono reveal">start <i class="ar" aria-hidden="true">→</i> test <i class="ar" aria-hidden="true">→</i> decide <i class="ar" aria-hidden="true">→</i> move</p>
       </div>
+      <figure class="plate reveal">
+        <!-- PHOTO: replace assets/akash.jpg with your own (keep filename, ~square crop). -->
+        <span class="plate-tick t-tl" aria-hidden="true"></span><span class="plate-tick t-tr" aria-hidden="true"></span>
+        <span class="plate-tick t-bl" aria-hidden="true"></span><span class="plate-tick t-br" aria-hidden="true"></span>
+        <img src="assets/akash.jpg" width="232" height="232" alt="Akash Kumar" decoding="async">
+        <figcaption class="plate-cap mono"><span>Plate I</span><span>me, lately</span></figcaption>
+      </figure>
     </div>
-    <p class="visually-hidden">start → test → decide → move</p>
-    <div class="marquee" data-marquee aria-hidden="true">
-      <div class="mq-track" data-mq-track>
-        <span class="mq-item">start <i class="ar">→</i> test <i class="ar">→</i> decide <i class="ar">→</i> move <i class="ar">→</i></span><span class="mq-item">start <i class="ar">→</i> test <i class="ar">→</i> decide <i class="ar">→</i> move <i class="ar">→</i></span><span class="mq-item">start <i class="ar">→</i> test <i class="ar">→</i> decide <i class="ar">→</i> move <i class="ar">→</i></span><span class="mq-item">start <i class="ar">→</i> test <i class="ar">→</i> decide <i class="ar">→</i> move <i class="ar">→</i></span>
-      </div>
-    </div>
+    <p class="scroll-cue mono reveal" aria-hidden="true">read on <span class="ar">↓</span></p>
   </section>
 
-  <!-- E3 · 01 THE RECORD (signature) -->
+  <!-- ── 01 · A record of work (the ledger) ──────────────────────────────── -->
   <section class="section" id="work" aria-labelledby="h-work">
     <div class="wrap">
-      <header class="sec-head reveal">
-        <p class="sec-index mono">01 /</p>
-        <h2 id="h-work">A record of work</h2>
-        <p class="sec-lead">What I've shipped, killed, and have running now.</p>
+      <div class="sec-top reveal"><span class="sec-index mono">01</span><span class="sec-rule" aria-hidden="true"></span></div>
+      <header class="sec-head">
+        <h2 class="reveal" id="h-work">A record of work</h2>
+        <p class="sec-lead reveal">What I've shipped, killed, and have running now.</p>
       </header>
 
-      <div class="legend mono" aria-hidden="true">
-        <span><i class="dot live"></i> LIVE — running now</span>
-        <span><i class="dot shipped"></i> SHIPPED — built &amp; done</span>
-        <span><i class="dot killed"></i> KILLED — stopped on purpose</span>
+      <div class="legend mono reveal" aria-hidden="true">
+        <span><i class="dot live"></i> Live — running now</span>
+        <span><i class="dot shipped"></i> Shipped — built &amp; done</span>
+        <span><i class="dot killed"></i> Killed — stopped on purpose</span>
       </div>
     </div>
 
-    <div class="ledger">
+    <div class="wrap ledger">
 
       <article class="row reveal">
-        <span class="row-ghost" data-parallax="0.10" aria-hidden="true">01</span>
-        <div class="wrap row-grid">
-          <div class="row-side mono">
-            <span class="tag live"><i class="g" aria-hidden="true">●</i> LIVE</span>
-            <span class="meta">2026 – PRESENT</span>
-            <span class="role">Founder's Office · Assistant Executive</span>
-          </div>
-          <div class="row-main">
-            <h3 class="entry">One Source International</h3>
-            <p class="out">I work next to the founder on the day-to-day: tracking and reconciling stock, catching gaps before they grow, and keeping the team's execution moving — while watching how priorities shift when something breaks.</p>
-            <!-- ADD REAL WIN/NUMBER HERE if true (exhibition ops, vendor coordination, databases built, workflows improved, sales supported). See CONTENT-TODO.md. -->
-            <p class="row-note mono">Where I am now — <b>the closest I've been to how decisions actually get made.</b></p>
-          </div>
+        <div class="row-side mono">
+          <span class="row-no">01</span>
+          <span class="tag live"><i class="g" aria-hidden="true">●</i> Live</span>
+          <span class="meta">2026 – present</span>
+          <span class="role">Founder's Office · Assistant Executive</span>
+        </div>
+        <div class="row-main">
+          <h3 class="entry">One Source International</h3>
+          <p class="out">I work next to the founder on the day-to-day: tracking and reconciling stock, catching gaps before they grow, and keeping the team's execution moving — while watching how priorities shift when something breaks.</p>
+          <!-- ADD REAL WIN/NUMBER HERE if true (exhibition ops, vendor coordination, databases built, workflows improved, sales supported). See CONTENT-TODO.md. -->
+          <p class="row-note mono">Where I am now — <b>the closest I've been to how decisions actually get made.</b></p>
         </div>
       </article>
 
       <article class="row reveal">
-        <span class="row-ghost" data-parallax="0.10" aria-hidden="true">02</span>
-        <div class="wrap row-grid">
-          <div class="row-side mono">
-            <span class="tag live"><i class="g" aria-hidden="true">●</i> LIVE</span>
-            <span class="meta">FEB 2026 – PRESENT</span>
-            <span class="role">Campus Lead</span>
-          </div>
-          <div class="row-main">
-            <h3 class="entry">µLearn Foundation</h3>
-            <p class="out">I lead the campus chapter — organising the work, coordinating with the foundation's enablers, and tracking who's actually engaged versus who just signed up. I ran our first offline orientation, which pulled in new registrations and got the chapter moving on the ground instead of on paper.</p>
-            <p class="metric mono">First offline orientation · <span data-count="60">60</span>+ students engaged</p>
-            <p class="row-note mono">Leading peers, <b>not just tasks.</b></p>
-          </div>
+        <div class="row-side mono">
+          <span class="row-no">02</span>
+          <span class="tag live"><i class="g" aria-hidden="true">●</i> Live</span>
+          <span class="meta">Feb 2026 – present</span>
+          <span class="role">Campus Lead</span>
+        </div>
+        <div class="row-main">
+          <h3 class="entry">µLearn Foundation</h3>
+          <p class="out">I lead the campus chapter — organising the work, coordinating with the foundation's enablers, and tracking who's actually engaged versus who just signed up. I ran our first offline orientation, which pulled in new registrations and got the chapter moving on the ground instead of on paper.</p>
+          <p class="metric mono">First offline orientation · <span data-count="60">60</span>+ students engaged</p>
+          <p class="row-note mono">Leading peers, <b>not just tasks.</b></p>
+        </div>
+      </article>
+
+      <article class="row reveal killed-row">
+        <div class="row-side mono">
+          <span class="row-no">03</span>
+          <span class="tag killed"><i class="g" aria-hidden="true">✕</i> Killed</span>
+          <span class="meta">Apr – Jul 2025</span>
+          <span class="role">Founder</span>
+        </div>
+        <div class="row-main">
+          <h3 class="entry">Jeevan Jhola</h3>
+          <p class="out">A reusable-bag venture on a recharge-and-return model — my first company. I took it from idea to an honest answer; the answer was stop. <a class="ilink" href="#casestudy">Read the full decision record ↓</a></p>
+          <p class="row-note mono">The one I'm proudest of — <b>because I'm the one who ended it.</b></p>
         </div>
       </article>
 
       <article class="row reveal">
-        <span class="row-ghost" data-parallax="0.10" aria-hidden="true">03</span>
-        <div class="wrap row-grid">
-          <div class="row-side mono">
-            <span class="tag killed"><i class="g" aria-hidden="true">✕</i> KILLED</span>
-            <span class="meta">APR – JUL 2025</span>
-            <span class="role">Founder</span>
-          </div>
-          <div class="row-main">
-            <h3 class="entry">Jeevan Jhola</h3>
-            <p class="out">A reusable-bag venture on a recharge-and-return model — my first company. I took it from idea to an honest answer; the answer was stop. <a class="ilink" href="#casestudy" data-cursor="GO">Read the full decision record ↓</a></p>
-            <p class="row-note mono">The one I'm proudest of — <b>because I'm the one who ended it.</b></p>
-          </div>
+        <div class="row-side mono">
+          <span class="row-no">04</span>
+          <span class="tag shipped"><i class="g" aria-hidden="true">✓</i> Shipped</span>
+          <span class="meta">May – Aug 2025</span>
+          <span class="role">Technical Intern · iINT-'25</span>
+        </div>
+        <div class="row-main">
+          <h3 class="entry">IIIT Kottayam</h3>
+          <p class="out">Selected for a competitive 13-week cohort. I built a working proof-of-concept Fake News Checker in Python using generative AI, applying NLP and text classification to flag misinformation. The useful lesson wasn't the model — it was deciding what "good enough" meant and measuring honestly against it.</p>
+          <p class="metric mono"><span data-count="13">13</span>-week selective cohort · under Dr. Jayakrushna Sahoo</p>
+          <p class="row-note mono">Proof I understand <b>the tech I plan to coordinate.</b></p>
         </div>
       </article>
 
       <article class="row reveal">
-        <span class="row-ghost" data-parallax="0.10" aria-hidden="true">04</span>
-        <div class="wrap row-grid">
-          <div class="row-side mono">
-            <span class="tag shipped"><i class="g" aria-hidden="true">✓</i> SHIPPED</span>
-            <span class="meta">MAY – AUG 2025</span>
-            <span class="role">Technical Intern · iINT-'25</span>
-          </div>
-          <div class="row-main">
-            <h3 class="entry">IIIT Kottayam</h3>
-            <p class="out">Selected for a competitive 13-week cohort. I built a working proof-of-concept Fake News Checker in Python using generative AI, applying NLP and text classification to flag misinformation. The useful lesson wasn't the model — it was deciding what "good enough" meant and measuring honestly against it.</p>
-            <p class="metric mono"><span data-count="13">13</span>-week selective cohort · under Dr. Jayakrushna Sahoo</p>
-            <p class="row-note mono">Proof I understand <b>the tech I plan to coordinate.</b></p>
-          </div>
+        <div class="row-side mono">
+          <span class="row-no">05</span>
+          <span class="tag shipped"><i class="g" aria-hidden="true">✓</i> Shipped</span>
+          <span class="meta">Nov 2024 – Jan 2025</span>
+          <span class="role">HR Intern · Remote</span>
         </div>
-      </article>
-
-      <article class="row reveal">
-        <span class="row-ghost" data-parallax="0.10" aria-hidden="true">05</span>
-        <div class="wrap row-grid">
-          <div class="row-side mono">
-            <span class="tag shipped"><i class="g" aria-hidden="true">✓</i> SHIPPED</span>
-            <span class="meta">NOV 2024 – JAN 2025</span>
-            <span class="role">HR Intern · Remote</span>
-          </div>
-          <div class="row-main">
-            <h3 class="entry">VS-Kart</h3>
-            <p class="out">Screened resumes, coordinated interviews, built the onboarding materials, and ran employee-engagement initiatives. My first real look behind an org chart — and the first time I saw how quietly coordination breaks when nobody owns the follow-up.</p>
-            <!-- ADD REAL COUNTS HERE if true (resumes screened / interviews coordinated). See CONTENT-TODO.md. -->
-            <p class="row-note mono">First look <b>behind the org chart.</b></p>
-          </div>
+        <div class="row-main">
+          <h3 class="entry">VS-Kart</h3>
+          <p class="out">Screened resumes, coordinated interviews, built the onboarding materials, and ran employee-engagement initiatives. My first real look behind an org chart — and the first time I saw how quietly coordination breaks when nobody owns the follow-up.</p>
+          <!-- ADD REAL COUNTS HERE if true (resumes screened / interviews coordinated). See CONTENT-TODO.md. -->
+          <p class="row-note mono">First look <b>behind the org chart.</b></p>
         </div>
       </article>
 
     </div>
 
     <div class="wrap">
-      <p class="ledger-foot mono reveal">5 RECORDS &nbsp;·&nbsp; LIVE 2 &nbsp;·&nbsp; SHIPPED 2 &nbsp;·&nbsp; KILLED 1
-        <span class="xref">Plus a <a href="#gamejam" data-cursor="GO">Best Innovative Game</a> — the PM story is below ↓</span>
+      <p class="ledger-foot mono reveal">5 records &nbsp;·&nbsp; live 2 &nbsp;·&nbsp; shipped 2 &nbsp;·&nbsp; killed 1
+        <span class="xref">Plus a <a href="#gamejam">Best Innovative Game</a> — the PM story is below ↓</span>
       </p>
     </div>
   </section>
 
-  <!-- E4 · 02 the Jeevan Jhola decision record (the case study) -->
+  <!-- ── 02 · The decision record (the case study) ───────────────────────── -->
   <section class="section" id="casestudy" aria-labelledby="h-case">
     <div class="wrap">
-      <header class="sec-head reveal">
-        <p class="sec-index mono">02 /</p>
-        <h2 id="h-case">The decision record</h2>
-        <p class="sec-lead">Jeevan Jhola, end to end — the case I'd walk you through in an interview.</p>
+      <div class="sec-top reveal"><span class="sec-index mono">02</span><span class="sec-rule" aria-hidden="true"></span></div>
+      <header class="sec-head">
+        <h2 class="reveal" id="h-case">The decision record</h2>
+        <p class="sec-lead reveal">Jeevan Jhola, end to end — the case I'd walk you through in an interview.</p>
       </header>
+
       <div class="case reveal" data-case>
-        <span class="stamp tag killed" data-stamp aria-hidden="true">✕ KILLED · ON PURPOSE</span>
-        <p class="case-top mono">Founder · Apr – Jul 2025 · reusable-bag venture</p>
+        <div class="case-head">
+          <p class="case-file mono">Case · Jeevan Jhola · Founder · Apr – Jul 2025 · reusable-bag venture</p>
+          <span class="stamp mono" data-stamp aria-hidden="true">✕ Killed · on purpose</span>
+        </div>
         <div class="case-body">
           <span class="case-spine" aria-hidden="true"><span class="case-spine-fill" data-spine></span></span>
           <dl class="cs">
@@ -315,43 +278,43 @@
           </dl>
         </div>
         <!-- ADD REAL FIGURES HERE if true (interns led · mock-survey responses · reviews gathered) — replace the line below. See CONTENT-TODO.md. -->
-        <p class="case-foot mono">Exact counts — interns led, survey responses, reviews gathered — on request. Real numbers, not rounded ones.</p>
+        <p class="footnote mono"><span class="dag" aria-hidden="true">†</span> Exact counts — interns led, survey responses, reviews gathered — on request. Real numbers, not rounded ones.</p>
       </div>
     </div>
   </section>
 
-  <!-- E5 · 03 the Game Jam feature (the one concrete PM artifact) -->
+  <!-- ── 03 · When I had to actually run it (the PM artifact) ─────────────── -->
   <section class="section" id="gamejam" aria-labelledby="h-gj">
-    <span class="gj-ghost" data-parallax="0.06" aria-hidden="true">48</span>
     <div class="wrap">
-      <header class="sec-head reveal">
-        <p class="sec-index mono">03 /</p>
-        <h2 id="h-gj">When I had to actually run it</h2>
+      <div class="sec-top reveal"><span class="sec-index mono">03</span><span class="sec-rule" aria-hidden="true"></span></div>
+      <header class="sec-head">
+        <h2 class="reveal" id="h-gj">When I had to actually run it</h2>
       </header>
+
       <div class="feature reveal">
-        <p class="case-top mono"><span class="tag shipped"><i class="g" aria-hidden="true">✓</i> SHIPPED</span>&nbsp; Global Game Jam Kerala · Jan 2026</p>
+        <p class="case-file mono"><span class="tag shipped"><i class="g" aria-hidden="true">✓</i> Shipped</span>&nbsp; Global Game Jam Kerala · Jan 2026</p>
         <h3 class="award-line">Best Innovative Game <span class="ac">— won.</span></h3>
         <p class="feat-role mono">Project Manager / Producer · 4-person cross-functional team</p>
         <div class="gj-clock" aria-hidden="true">
           <div class="gj-bar"><span class="gj-fill" data-gjfill></span></div>
-          <span class="gj-hrs mono"><span data-gjhrs>48</span> HRS</span>
+          <span class="gj-hrs mono"><span data-gjhrs>48</span> hrs</span>
         </div>
         <div class="facts">
-          <div><span class="fact-k mono">TEAM</span><span class="fact-v"><span data-count="4">4</span> — devs &amp; designers</span></div>
-          <div><span class="fact-k mono">CONSTRAINT</span><span class="fact-v"><span data-count="48">48</span> hours, from scratch</span></div>
-          <div><span class="fact-k mono">OUTCOME</span><span class="fact-v">Best Innovative Game</span></div>
+          <div><span class="fact-k mono">Team</span><span class="fact-v"><span data-count="4">4</span> — devs &amp; designers</span></div>
+          <div><span class="fact-k mono">Constraint</span><span class="fact-v"><span data-count="48">48</span> hours, from scratch</span></div>
+          <div><span class="fact-k mono">Outcome</span><span class="fact-v">Best Innovative Game</span></div>
         </div>
         <p class="feat-body">Forty-eight hours, four people, one psychological-horror detective game built from nothing. My job wasn't the code — it was scope, priorities, comms, and playtesting. I held the line on the core mechanic and cut the features that wanted to creep in. We shipped on time, and we won. It's the closest I've come to running a real project end to end.</p>
       </div>
     </div>
   </section>
 
-  <!-- E6 · 04 how I got here (the arc) -->
+  <!-- ── 04 · How I got here (the arc) ───────────────────────────────────── -->
   <section class="section" id="arc" aria-labelledby="h-arc">
     <div class="wrap">
-      <header class="sec-head reveal">
-        <p class="sec-index mono">04 /</p>
-        <h2 id="h-arc">How I got here</h2>
+      <div class="sec-top reveal"><span class="sec-index mono">04</span><span class="sec-rule" aria-hidden="true"></span></div>
+      <header class="sec-head">
+        <h2 class="reveal" id="h-arc">How I got here</h2>
       </header>
       <div class="prose reveal">
         <p>I grew up in Barh, near Patna in Bihar, and built the rest of myself in Kerala. Moving that far that young taught me the first operator's skill before I had a word for it: <span class="hl">read a new system fast,</span> figure out what actually runs it, then make yourself useful.</p>
@@ -361,26 +324,26 @@
     </div>
   </section>
 
-  <!-- E7 · 05 what I bring -->
+  <!-- ── 05 · What I bring ───────────────────────────────────────────────── -->
   <section class="section" id="bring" aria-labelledby="h-bring">
     <div class="wrap">
-      <header class="sec-head reveal">
-        <p class="sec-index mono">05 /</p>
-        <h2 id="h-bring">What I bring</h2>
+      <div class="sec-top reveal"><span class="sec-index mono">05</span><span class="sec-rule" aria-hidden="true"></span></div>
+      <header class="sec-head">
+        <h2 class="reveal" id="h-bring">What I bring</h2>
       </header>
       <div class="bring">
         <div class="bring-col reveal">
-          <span class="bring-ghost" aria-hidden="true">01</span>
+          <span class="bring-no mono" aria-hidden="true">01</span>
           <h3>Operations &amp; delivery</h3>
           <p>I take work that's vague and make it concrete: track what's happening, reconcile what doesn't add up, set priorities, document the process so it survives me, and own the boring follow-through that decides whether anything actually ships.</p>
         </div>
         <div class="bring-col reveal">
-          <span class="bring-ghost" aria-hidden="true">02</span>
+          <span class="bring-no mono" aria-hidden="true">02</span>
           <h3>People &amp; communication</h3>
           <p>I've led a four-person team to a deadline, led a campus chapter, recruited and onboarded interns, and run engagement that kept people showing up. I give plain, direct updates — no jargon, no hiding the bad news.</p>
         </div>
         <div class="bring-col reveal">
-          <span class="bring-ghost" aria-hidden="true">03</span>
+          <span class="bring-no mono" aria-hidden="true">03</span>
           <h3>Judgment &amp; foundation</h3>
           <p>I decide at roughly seventy percent and watch what breaks rather than waiting for certainty that never comes. The AI &amp; Data Science degree and working Python mean I understand the systems the work touches — an advantage, not the act.</p>
         </div>
@@ -388,33 +351,33 @@
     </div>
   </section>
 
-  <!-- E8 · 06 how I work (principles) -->
+  <!-- ── 06 · How I work (principles) ────────────────────────────────────── -->
   <section class="section" id="principles" aria-labelledby="h-principles">
     <div class="wrap">
-      <header class="sec-head reveal">
-        <p class="sec-index mono">06 /</p>
-        <h2 id="h-principles">How I work</h2>
+      <div class="sec-top reveal"><span class="sec-index mono">06</span><span class="sec-rule" aria-hidden="true"></span></div>
+      <header class="sec-head">
+        <h2 class="reveal" id="h-principles">How I work</h2>
       </header>
       <ol class="principles">
-        <li class="reveal"><span class="p-num mono">01</span><span class="p-text"><b><span class="hl-sweep">Clarity before speed.</span></b><span class="t">Most execution problems are clarity problems wearing a costume. Name the real thing first and half the chaos disappears.</span></span></li>
-        <li class="reveal"><span class="p-num mono">02</span><span class="p-text"><b><span class="hl-sweep">The detail is the strategy.</span></b><span class="t">You can't manage from the top what you've never touched at the bottom. Better to know how the stock reconciles than to have an opinion about it.</span></span></li>
-        <li class="reveal"><span class="p-num mono">03</span><span class="p-text"><b><span class="hl-sweep">Follow-up beats excitement.</span></b><span class="t">The person who closes the loop usually wins. It's unglamorous, which is exactly why it's rare.</span></span></li>
-        <li class="reveal"><span class="p-num mono">04</span><span class="p-text"><b><span class="hl-sweep">Test reality before building for it.</span></b><span class="t">People agree with a good idea and then do whatever's easiest — so I check what they actually do, not what they say, before committing resources.</span></span></li>
-        <li class="reveal"><span class="p-num mono">05</span><span class="p-text"><b><span class="hl-sweep">Knowing what to stop is a skill.</span></b><span class="t">Starting is easy. Quitting the right thing, on purpose, before it drains more than it's worth, is the harder and more useful decision.</span></span></li>
+        <li class="reveal"><span class="p-num mono">01</span><span class="p-text"><b class="uline">Clarity before speed.</b><span class="t">Most execution problems are clarity problems wearing a costume. Name the real thing first and half the chaos disappears.</span></span></li>
+        <li class="reveal"><span class="p-num mono">02</span><span class="p-text"><b class="uline">The detail is the strategy.</b><span class="t">You can't manage from the top what you've never touched at the bottom. Better to know how the stock reconciles than to have an opinion about it.</span></span></li>
+        <li class="reveal"><span class="p-num mono">03</span><span class="p-text"><b class="uline">Follow-up beats excitement.</b><span class="t">The person who closes the loop usually wins. It's unglamorous, which is exactly why it's rare.</span></span></li>
+        <li class="reveal"><span class="p-num mono">04</span><span class="p-text"><b class="uline">Test reality before building for it.</b><span class="t">People agree with a good idea and then do whatever's easiest — so I check what they actually do, not what they say, before committing resources.</span></span></li>
+        <li class="reveal"><span class="p-num mono">05</span><span class="p-text"><b class="uline">Knowing what to stop is a skill.</b><span class="t">Starting is easy. Quitting the right thing, on purpose, before it drains more than it's worth, is the harder and more useful decision.</span></span></li>
       </ol>
     </div>
   </section>
 
-  <!-- E9 · 07 testimonial -->
+  <!-- ── 07 · In someone's words (testimonial) ───────────────────────────── -->
   <section class="section" id="says" aria-labelledby="h-says">
     <div class="wrap">
-      <header class="sec-head reveal">
-        <p class="sec-index mono">07 /</p>
-        <h2 id="h-says">In someone's words</h2>
+      <div class="sec-top reveal"><span class="sec-index mono">07</span><span class="sec-rule" aria-hidden="true"></span></div>
+      <header class="sec-head">
+        <h2 class="reveal" id="h-says">In someone's words</h2>
       </header>
       <blockquote class="quote reveal">
         <span class="quote-mark" aria-hidden="true">“</span>
-        <p class="quote-text" data-words>Builds the staircase while climbing it — a rare mix of heart, hustle, and clarity.</p>
+        <p class="quote-text">Builds the staircase while climbing it — a rare mix of heart, hustle, and clarity.</p>
         <cite class="mono">— Major Deepak Raj · mentor, Jeevan Jhola</cite>
       </blockquote>
       <!-- ADD MORE *REAL* TESTIMONIALS ONLY. A recommendation from Sudhanshu Shukla (VS-Kart) exists,
@@ -423,13 +386,13 @@
     </div>
   </section>
 
-  <!-- E10 · 08 field notes (the signature voice) -->
+  <!-- ── 08 · Field notes ────────────────────────────────────────────────── -->
   <section class="section" id="notes" aria-labelledby="h-notes">
     <div class="wrap">
-      <header class="sec-head reveal">
-        <p class="sec-index mono">08 /</p>
-        <h2 id="h-notes">Field notes</h2>
-        <p class="sec-lead">Observations from the ground, numbered the way I found them.</p>
+      <div class="sec-top reveal"><span class="sec-index mono">08</span><span class="sec-rule" aria-hidden="true"></span></div>
+      <header class="sec-head">
+        <h2 class="reveal" id="h-notes">Field notes</h2>
+        <p class="sec-lead reveal">Observations from the ground, numbered the way I found them.</p>
       </header>
       <ul class="fnotes">
         <li class="reveal"><span class="fn-num mono">No. 03</span><p>A good onboarding document is the cheapest employee you'll ever hire.</p></li>
@@ -441,28 +404,28 @@
     </div>
   </section>
 
-  <!-- E11 · 09 foundations -->
+  <!-- ── 09 · Foundations ────────────────────────────────────────────────── -->
   <section class="section" id="foundations" aria-labelledby="h-found">
     <div class="wrap">
-      <header class="sec-head reveal">
-        <p class="sec-index mono">09 /</p>
-        <h2 id="h-found">Foundations</h2>
+      <div class="sec-top reveal"><span class="sec-index mono">09</span><span class="sec-rule" aria-hidden="true"></span></div>
+      <header class="sec-head">
+        <h2 class="reveal" id="h-found">Foundations</h2>
       </header>
       <div class="facts-list reveal">
-        <div class="fr"><span class="fk mono">DEGREE</span><span class="fv">B.Tech, Artificial Intelligence &amp; Data Science <span class="s">— MES College of Engineering &amp; Technology (KTU). Expected Aug 2027.</span></span></div>
-        <div class="fr"><span class="fk mono">CERTIFICATE</span><span class="fv">Google Project Management Professional <span class="s">— Coursera, in progress (~June 2026).</span></span></div>
-        <div class="fr"><span class="fk mono">LEARNING NOW</span><span class="fv">How decisions get made when information is thin — from the closest seat I've had. <span class="s">Plus the formal vocabulary of project management, to put names on what I've been doing by instinct.</span></span></div>
+        <div class="fr"><span class="fk mono">Degree</span><span class="fv">B.Tech, Artificial Intelligence &amp; Data Science <span class="s">— MES College of Engineering &amp; Technology (KTU). Expected Aug 2027.</span></span></div>
+        <div class="fr"><span class="fk mono">Certificate</span><span class="fv">Google Project Management Professional <span class="s">— Coursera, in progress (~June 2026).</span></span></div>
+        <div class="fr"><span class="fk mono">Learning now</span><span class="fv">How decisions get made when information is thin — from the closest seat I've had. <span class="s">Plus the formal vocabulary of project management, to put names on what I've been doing by instinct.</span></span></div>
       </div>
       <p class="arc-note reveal">Most of my real learning has come from outside the classroom — a venture, the internships, and a founder's-office seat — using the technical foundation to understand the work, not to disappear into it.</p>
     </div>
   </section>
 
-  <!-- E12 · 10 contact -->
+  <!-- ── 10 · Get in touch (the sign-off) ────────────────────────────────── -->
   <section class="section contact" id="contact" aria-labelledby="h-contact">
     <div class="wrap">
-      <header class="sec-head reveal">
-        <p class="sec-index mono">10 /</p>
-        <h2 id="h-contact">Get in touch</h2>
+      <div class="sec-top reveal"><span class="sec-index mono">10</span><span class="sec-rule" aria-hidden="true"></span></div>
+      <header class="sec-head">
+        <h2 class="reveal" id="h-contact">Get in touch</h2>
       </header>
       <div class="contact-grid">
         <div class="contact-left reveal">
@@ -471,17 +434,17 @@
         </div>
         <div class="contact-right reveal">
           <div class="cta-row">
-            <a class="btn" href="mailto:hrakashchauhan@gmail.com?subject=Saw%20your%20portfolio%20%E2%80%94%20let%27s%20talk" data-magnetic data-cursor="OPEN">Write to me <span class="ar" aria-hidden="true">→</span></a>
-            <a class="btn-ghost" href="https://wa.me/919709799899?text=Hi%20Akash%2C%20I%20saw%20your%20portfolio%20%E2%80%94%20would%20love%20to%20connect." target="_blank" rel="noopener noreferrer" data-cursor="OPEN">WhatsApp <span class="ar" aria-hidden="true">→</span></a>
+            <a class="btn" href="mailto:hrakashchauhan@gmail.com?subject=Saw%20your%20portfolio%20%E2%80%94%20let%27s%20talk">Write to me <span class="ar" aria-hidden="true">→</span></a>
+            <a class="btn-ghost" href="https://wa.me/919709799899?text=Hi%20Akash%2C%20I%20saw%20your%20portfolio%20%E2%80%94%20would%20love%20to%20connect." target="_blank" rel="noopener noreferrer">WhatsApp <span class="ar" aria-hidden="true">→</span></a>
           </div>
-          <div class="links">
-            <span class="link-row"><a href="mailto:hrakashchauhan@gmail.com" data-cursor="OPEN">hrakashchauhan@gmail.com</a><button class="copy mono" type="button" data-copy="hrakashchauhan@gmail.com" data-cursor="COPY" aria-label="Copy email address">[ COPY ]</button></span>
-            <a href="tel:+919709799899" data-cursor="OPEN">+91 97097 99899</a>
-            <a href="https://www.linkedin.com/in/youfoundakash" target="_blank" rel="noopener noreferrer" data-cursor="OPEN">LinkedIn →</a>
-            <a href="https://github.com/hrakashchauhan" target="_blank" rel="noopener noreferrer" data-cursor="OPEN">GitHub →</a>
-            <span class="loc mono">ERNAKULAM · KERALA · INDIA</span>
+          <div class="links mono">
+            <span class="link-row"><a href="mailto:hrakashchauhan@gmail.com">hrakashchauhan@gmail.com</a><button class="copy" type="button" data-copy="hrakashchauhan@gmail.com" aria-label="Copy email address">[ copy ]</button></span>
+            <a href="tel:+919709799899">+91 97097 99899</a>
+            <a href="https://www.linkedin.com/in/youfoundakash" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
+            <a href="https://github.com/hrakashchauhan" target="_blank" rel="noopener noreferrer">GitHub →</a>
+            <span class="loc">Ernakulam · Kerala · India</span>
           </div>
-          <p class="seeking mono">SEEKING: OPERATIONS · FOUNDER'S OFFICE · PROJECT / PROGRAM MANAGEMENT — REMOTE / HYBRID / ON-SITE — AVAILABLE NOW</p>
+          <p class="seeking mono">Seeking: operations · founder's office · project / program management — remote / hybrid / on-site — available now</p>
         </div>
       </div>
     </div>
@@ -489,11 +452,12 @@
 
 </main>
 
-<footer class="foot">
-  <div class="wrap foot-grid">
+<footer class="colophon">
+  <div class="wrap colophon-grid">
     <span class="sig">— Akash · Kerala, India · Ops → PM</span>
-    <span class="mono">start → test → decide → move</span>
-    <span class="colophon">Set in Bricolage Grotesque, Inter &amp; IBM Plex Mono. No analytics, no cookies, no trackers. · 2026</span>
+    <span class="strap mono">start → test → decide → move</span>
+    <span class="set">Set in Fraunces &amp; IBM Plex Mono. No analytics, no cookies, no trackers. · 2026</span>
+    <span class="endmark mono" aria-hidden="true">— 30 —</span>
   </div>
 </footer>
 

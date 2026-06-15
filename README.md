@@ -1,28 +1,28 @@
-# Akash Kumar — SIGNAL
+# Akash Kumar — The Record
 
 A personal site for **Akash Kumar**: a technically-literate operator moving toward project management. The concept
-is **SIGNAL** — kinetic type on warm black ("the after-hours workshop"): massive Bricolage Grotesque headlines that
-move like a machine, one **signal-amber** accent (`#F2B63C` — the highlighter that marks what matters, the work-site
-signal colour, and earned gold), and an ember-red `KILLED` reserved for exactly one thing. Every real role is tagged
-`LIVE` / `SHIPPED` / `KILLED`, the Jeevan Jhola shutdown is owned as a deliberate decision (its own evidence-style
-case study with a rubber-stamp), and the Global Game Jam win is featured as the one concrete PM artifact with a
-48-hour progress bar. The form itself is the proof. Static, fast, and dependency-free.
+is **The Record** — the whole page is one beautifully-typeset operations *record* an operator keeps of what he's
+**shipped, killed, and is running now**: a masthead and dateline, a ruled ledger, tabular figures, margin notes,
+footnotes, and a colophon. Warm archival **paper** (`#F4EFE3`), near-black warm ink, and one **editor's red**
+(`#B5392B` — the editor's pen / "in the red" / the kill), used sparingly so it always means something. Every real
+role is tagged `LIVE` / `SHIPPED` / `KILLED`; the Jeevan Jhola shutdown is owned as a deliberate decision (its own
+case file with a `KILLED · ON PURPOSE` mark); and the Global Game Jam win is featured as the one concrete PM
+artifact. The differentiator is editorial craft and restraint. Static, fast, and dependency-free.
 
-> Design note: a ground-up v5 redesign (June 2026) replacing the warm-paper "Field Ledger". Direction chosen by
-> the owner from four candidates ("SIGNAL — kinetic type"); colour chosen psychologically (no technical blue, by
-> his request). Motion: an intro stamp (once per session), per-line hero mask reveals, a canvas ember-field, a
-> scroll-velocity marquee, staggered ledger reveals with parallax ghost numerals, a scroll-drawn decision spine,
-> odometer counters, magnetic buttons and a labelled custom cursor — all vanilla JS, all skippable, all of it
-> degrading to a fully readable static page.
+> Design note: a ground-up v6 redesign (June 2026) replacing the dark "SIGNAL". Direction chosen by the owner from
+> three candidates ("The Record — editorial"), motion kept deliberately restrained, accent chosen for meaning (an
+> editor's red, no technical blue). Motion is content-serving only: section/ledger rules draw themselves on reveal,
+> figures count up, the decision spine draws as you read down the case, the kill-mark sets in, a live Ernakulam
+> clock ticks, links draw a red underline on hover — all vanilla JS, all degrading to a fully readable static page.
 
 ## What it is
 - A single static page: `index.html` + `styles/` + `js/` + `assets/`. **No build step, no framework, no tracker.**
-- **Self-hosted fonts** — Bricolage Grotesque (variable; display), Inter (variable; body/UI), IBM Plex Mono
-  (machinery). Zero third-party requests at runtime.
+- **Self-hosted fonts** — Fraunces (variable serif; display + text) and IBM Plex Mono (machinery/figures). Zero
+  third-party requests at runtime.
 - **Fully readable with JavaScript disabled** (html.no-js shows everything; a 3s failsafe reveals all if JS dies).
-  `prefers-reduced-motion` gets a fully static page. WCAG 2.1 AA on warm black (contrast math in
+  `prefers-reduced-motion` gets a fully static page. WCAG 2.1 AA on warm paper (contrast math in
   `styles/tokens.css`; status shown by text label + glyph + colour, never colour alone). Responsive 360→1440.
-  Print styles included. Dark-only identity by design.
+  Print styles included (a clean black-on-white record). Light identity by design.
 
 See `CONTENT-TODO.md` for the real facts still to add.
 
@@ -69,7 +69,7 @@ exactly where true figures go. **Only ever enter true values.**
 
 ## Regenerating assets (optional)
 Both scripts render templates with headless Chrome/Edge — no Node/Python needed.
-- Fonts: `powershell -ExecutionPolicy Bypass -File scripts\fetch-fonts.ps1` (downloads Bricolage Grotesque + Inter
+- Fonts: `powershell -ExecutionPolicy Bypass -File scripts\fetch-fonts.ps1` (downloads Fraunces (roman + italic)
   + IBM Plex Mono as latin woff2 into `assets/fonts/` — already committed).
 - OG image + favicons: `powershell -ExecutionPolicy Bypass -File scripts\generate-assets.ps1`
   (sources in `scripts/asset-src/`; it never overwrites your real `akash.jpg`).

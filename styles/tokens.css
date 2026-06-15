@@ -1,93 +1,82 @@
-/* ============================================================
-   SIGNAL — design tokens
-   Kinetic type on warm black. "The after-hours workshop."
+/* ============================================================================
+   THE RECORD — design tokens
+   An editorial "operations record": warm archival paper, near-black warm ink,
+   one editor's red. Light identity only. Every value below is deliberate.
+   Contrast figures are WCAG 2.1 ratios against --paper (#F4EFE3) unless noted.
+   ============================================================================ */
 
-   Psychology of the palette:
-     warm black  — the workshop after hours, where the work actually happens
-                   (deliberately NOT blue-black: blue-blacks read "tech demo")
-     bone ivory  — honest paper, inverted
-     signal amber— the highlighter that marks what matters + the work-site
-                   signal color (operations) + earned gold (he won; "I'd
-                   rather earn the title than print it")
-     ember red   — spent on exactly one thing: the kill decision
-
-   Contrast on --bg (#0F0D0A), WCAG relative-luminance math:
-     ink      #F4EFE4  ~16.9:1  (AAA)
-     ink-soft #A89F8D   ~7.4:1  (AAA small text)
-     ink-faint#837B6D   ~4.6:1  (AA small — meta/micro on --bg ONLY,
-                                 not on raised surfaces)
-     accent   #F2B63C  ~10.6:1  (AAA)
-     accent-ink #14110B on amber ~10.3:1 (AAA — text on filled button)
-     live     #46C172   ~8.4:1  · killed #FF5A47 ~6.3:1  (both AA+)
-   Status is ALWAYS triple-encoded (text label + glyph + colour) — SC 1.4.1.
-   ============================================================ */
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
-  /* surface & ink */
-  --bg:        #0F0D0A;   /* warm black canvas */
-  --bg-raise:  #17140F;   /* raised surfaces / cards */
-  --bg-deep:   #0A0908;   /* intro overlay · footer well */
-  --ink:       #F4EFE4;   /* bone ivory */
-  --ink-soft:  #A89F8D;   /* warm gray — secondary text */
-  --ink-faint: #837B6D;   /* tertiary meta (AA on --bg only) */
-  --hairline:  #2A251D;   /* rules — decorative */
-  --hairline-2:#3A332A;   /* hover-state rules */
+  /* — Paper (canvas) — warm, slightly aged; never pure white -------------- */
+  --paper:       #F4EFE3;   /* the page                                       */
+  --paper-2:     #ECE6D8;   /* raised panel: case file, gamejam, footer well  */
+  --paper-edge:  #E6DECB;   /* deepest well: footer / colophon                */
 
-  /* the one accent — signal amber */
-  --accent:     #F2B63C;
-  --accent-hot: #FFCE5C;             /* hover */
-  --accent-ink: #14110B;             /* text ON amber */
-  --wash:       rgba(242,182,60,.05);  /* row-ignite hover */
-  --hl-band:    rgba(242,182,60,.17);  /* highlight sweep band */
-  --ghost:      rgba(244,239,228,.05); /* oversized ghost numerals */
+  /* — Ink (text) ---------------------------------------------------------- */
+  --ink:    #1B1A17;        /* primary    — 14.6:1  (AAA)                     */
+  --ink-2:  #57534A;        /* secondary  —  6.6:1  (AA body, AAA large)      */
+  --ink-3:  #6B675A;        /* meta/faint —  4.9:1  (AA small — roles, keys) */
 
-  /* status — never colour alone */
-  --live:      #46C172;  --live-dim:    rgba(70,193,114,.13);
-  --shipped:   #F4EFE4;  --shipped-dim: rgba(244,239,228,.10);
-  --killed:    #FF5A47;  --killed-dim:  rgba(255,90,71,.12);
+  /* — Rules --------------------------------------------------------------- */
+  --rule:        #D8D0BE;   /* hairline (decorative)                          */
+  --rule-strong: #BDB39C;   /* section / masthead rules (decorative)          */
 
-  --focus:     #F2B63C;
+  /* — Editor's red (the one accent — used sparingly, always meaningful) ---- */
+  --red:       #B5392B;     /* emphasis / large / UI — 5.3:1 (AA normal+large)*/
+  --red-deep:  #8F2A1F;     /* small red text / hover — 7.4:1 (AAA small)     */
+  --red-ink:   #FBF6EC;     /* text ON a red fill (near-paper sits on red)    */
+  --wash:      rgba(181, 57, 43, .055);  /* killed-row + case-file tint       */
+  --wash-2:    rgba(181, 57, 43, .12);   /* hover wash on rows                 */
 
-  /* chrome */
-  --hud-bg:    rgba(15,13,10,.78);
+  /* — Status (triple-encoded: glyph + label + colour) --------------------- */
+  --live:    #256B43;       /* muted archival green — 4.9:1 (dot + ink label) */
+  --shipped: var(--ink);    /* settled ink check                              */
+  --killed:  var(--red);    /* the kill                                       */
 
-  /* type */
-  --display: 'Bricolage Grotesque', 'Arial Narrow', Impact, system-ui, sans-serif;
-  --sans:    'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --mono:    'IBM Plex Mono', ui-monospace, 'Cascadia Code', Consolas, 'Courier New', monospace;
+  /* — Type families ------------------------------------------------------- */
+  --serif: 'Fraunces', Georgia, 'Times New Roman', 'Times', serif;
+  --mono:  'IBM Plex Mono', ui-monospace, 'SFMono-Regular', 'Cascadia Mono',
+           'Consolas', 'Liberation Mono', monospace;
 
-  /* fluid type scale (360 → 1440) */
-  --fs-hero:    clamp(2.7rem, 0.9rem + 8.8vw, 8.4rem);
-  --fs-h2:      clamp(2.0rem, 1.4rem + 2.8vw, 3.6rem);
-  --fs-entry:   clamp(1.6rem, 1.1rem + 2.3vw, 3.2rem);
-  --fs-award:   clamp(1.7rem, 1.2rem + 2.4vw, 3.4rem);
-  --fs-quote:   clamp(1.5rem, 1.1rem + 2.0vw, 2.6rem);
-  --fs-ghost:   clamp(6rem, 16vw, 17rem);
-  --fs-lead:    clamp(1.08rem, 1rem + 0.45vw, 1.32rem);
-  --fs-body:    1.0625rem;
-  --fs-meta:    0.8125rem;
-  --fs-micro:   0.72rem;
+  /* — Type scale (1440 → 360 via clamp) ----------------------------------- */
+  --t-hero:   clamp(2.4rem, 1.30rem + 5.0vw, 5.0rem);    /* opening statement */
+  --t-h2:     clamp(1.8rem, 1.20rem + 2.8vw, 3.0rem);    /* section heads     */
+  --t-entry:  clamp(1.5rem, 1.10rem + 1.9vw, 2.5rem);    /* ledger entry name */
+  --t-h3:     clamp(1.25rem, 1.05rem + 0.9vw, 1.7rem);   /* sub-heads         */
+  --t-lead:   clamp(1.15rem, 1.05rem + 0.5vw, 1.4rem);   /* lead paragraphs   */
+  --t-body:   1.0625rem;                                  /* running text      */
+  --t-quote:  clamp(1.6rem, 1.10rem + 2.3vw, 2.7rem);    /* pull-quote        */
+  --t-mono:   0.78rem;                                    /* machinery         */
+  --t-micro:  0.7rem;                                     /* tiniest meta      */
+  --t-ghost:  clamp(4rem, 9vw, 9rem);                     /* big mono figures  */
 
-  /* layout & rhythm */
-  --maxw:    1200px;
-  --pad:     clamp(20px, 5vw, 32px);
-  --rhythm:  clamp(96px, 12vh, 168px);
-  --hud-h:   64px;
+  --lh-tight: 1.04;
+  --lh-head:  1.1;
+  --lh-body:  1.62;
+  --measure:  68ch;         /* comfortable reading column                     */
 
-  /* motion vocabulary — ONE language everywhere */
-  --ease-out:   cubic-bezier(.16, 1, .3, 1);   /* reveals, rises */
-  --ease-inout: cubic-bezier(.65, 0, .35, 1);  /* sweeps, wipes, intro exit */
-  --t-micro:  180ms;
-  --t-hover:  280ms;
-  --t-reveal: 750ms;
-  --t-sweep:  600ms;
+  /* — Layout -------------------------------------------------------------- */
+  --page:   1180px;                              /* max content width         */
+  --pad:    clamp(20px, 5vw, 40px);              /* outer gutter              */
+  --rail:   148px;                               /* left margin rail (≥1100)  */
+  --gap:    clamp(28px, 4vw, 56px);
+  --section-y: clamp(64px, 7vw, 112px);           /* vertical rhythm           */
 
-  /* z-order */
-  --z-progress: 85;
-  --z-hud:      80;
-  --z-rail:     70;
-  --z-toast:    60;
-  --z-intro:    90;
-  --z-cursor:   100;
+  /* — Motion -------------------------------------------------------------- */
+  --ease-out:   cubic-bezier(.16, 1, .3, 1);     /* reveals, rule draws       */
+  --ease-inout: cubic-bezier(.65, 0, .35, 1);    /* underline draws, mark set */
+  --d-hover:  200ms;
+  --d-reveal: 700ms;
+  --d-rule:   600ms;
+  --d-count:  900ms;
+  --stagger:  65ms;
+
+  /* — Misc ---------------------------------------------------------------- */
+  --shadow-plate: 0 1px 0 rgba(27, 26, 23, .04), 0 18px 40px -28px rgba(27, 26, 23, .35);
+  --focus: 2px solid var(--red);
 }
+
+/* Editor's-red text selection — a deliberate, on-brand flourish. */
+::selection      { background: var(--red); color: var(--paper); }
+::-moz-selection { background: var(--red); color: var(--paper); }
