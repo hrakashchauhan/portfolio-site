@@ -1,88 +1,72 @@
 # Akash Kumar — The Record
 
-A personal site for **Akash Kumar**: a technically-literate operator moving toward project management. The concept
-is **The Record** — the whole page is one beautifully-typeset operations *record* an operator keeps of what he's
-**shipped, killed, and is running now**: a masthead and dateline, a ruled ledger, tabular figures, margin notes,
-footnotes, and a colophon. Warm archival **paper** (`#F4EFE3`), near-black warm ink, and one **editor's red**
-(`#B5392B` — the editor's pen / "in the red" / the kill), used sparingly so it always means something. Every real
-role is tagged `LIVE` / `SHIPPED` / `KILLED`; the Jeevan Jhola shutdown is owned as a deliberate decision (its own
-case file with a `KILLED · ON PURPOSE` mark); and the Global Game Jam win is featured as the one concrete PM
-artifact. The differentiator is editorial craft and restraint. Static, fast, and dependency-free.
+> A static personal site built as a single, beautifully-typeset operations *record* — what one operator has shipped, killed, and is running now.
 
-> Design note: a ground-up v6 redesign (June 2026) replacing the dark "SIGNAL". Direction chosen by the owner from
-> three candidates ("The Record — editorial"), motion kept deliberately restrained, accent chosen for meaning (an
-> editor's red, no technical blue). Motion is content-serving only: section/ledger rules draw themselves on reveal,
-> figures count up, the decision spine draws as you read down the case, the kill-mark sets in, a live Ernakulam
-> clock ticks, links draw a red underline on hover — all vanilla JS, all degrading to a fully readable static page.
+The whole page reads like an editorial ledger: a masthead and dateline, ruled rows, tabular figures, margin notes, footnotes, and a colophon. Every role is tagged `LIVE`, `SHIPPED`, or `KILLED`. Warm archival paper (`#F4EFE3`), near-black warm ink, and a single editor's red (`#B5392B`) used sparingly so it always means something. No framework, no build step, no tracker — just HTML, CSS, and a small amount of vanilla JavaScript.
 
-## What it is
-- A single static page: `index.html` + `styles/` + `js/` + `assets/`. **No build step, no framework, no tracker.**
-- **Self-hosted fonts** — Fraunces (variable serif; display + text) and IBM Plex Mono (machinery/figures). Zero
-  third-party requests at runtime.
-- **Fully readable with JavaScript disabled** (html.no-js shows everything; a 3s failsafe reveals all if JS dies).
-  `prefers-reduced-motion` gets a fully static page. WCAG 2.1 AA on warm paper (contrast math in
-  `styles/tokens.css`; status shown by text label + glyph + colour, never colour alone). Responsive 360→1440.
-  Print styles included (a clean black-on-white record). Light identity by design.
+**Live:** <https://youfoundakash.netlify.app/>
 
-See `CONTENT-TODO.md` for the real facts still to add.
+## Highlights
 
-## Run it locally
-Easiest — **double-click `index.html`** (it works straight from the file system; no server needed).
+- **Single static page** — `index.html` plus `styles/`, `js/`, and `assets/`. Open it straight from the file system; no server required.
+- **Self-hosted fonts** — Fraunces (variable serif, roman + italic) and IBM Plex Mono, served as local `woff2`. Zero third-party requests at runtime.
+- **Progressive enhancement** — fully readable with JavaScript disabled (the page renders everything; a 3-second failsafe reveals all content even if the script fails to boot).
+- **Restrained, content-serving motion** — section rules draw on reveal, figures count up, a decision "spine" draws as you read down a case file, a `KILLED` stamp sets, and a live Ernakulam (IST) clock ticks. All vanilla JS, all degrading gracefully.
+- **Accessibility & responsiveness** — honours `prefers-reduced-motion` (static page), status conveyed by text label + glyph + colour (never colour alone), responsive 360→1440, and print styles for a clean black-on-white record.
+- **No analytics, no cookies, no third-party calls** — by design.
 
-With a local server (no Node or Python required — this uses PowerShell):
+## Tech stack
+
+- Plain **HTML5**, **CSS** (custom properties / design tokens in `styles/tokens.css`), and **vanilla JavaScript** (`js/main.js`) — no dependencies, no build.
+- Self-hosted **Fraunces** and **IBM Plex Mono** webfonts (`assets/fonts/`).
+- PowerShell helper scripts for local serving and asset regeneration (optional).
+
+## Getting started
+
+The simplest way to view the site is to **open `index.html` in a browser** — it works directly from the file system.
+
+To serve it over HTTP locally (no Node or Python needed):
+
 ```
 powershell -ExecutionPolicy Bypass -File scripts\serve.ps1
 ```
-then open <http://localhost:8080/> (Ctrl+C to stop). `npx serve` or `python -m http.server` from the repo root work too.
 
-## Deploy
+Then open <http://localhost:8080/>. Any static server works just as well, e.g. `npx serve` or `python -m http.server` from the repo root.
 
-### Option A — Netlify Drop (fastest, free HTTPS)
-1. Open <https://app.netlify.com/drop>.
-2. Drag the **whole project folder** onto the page.
-3. You instantly get a live `https://<name>.netlify.app` URL.
-4. (Optional) Site settings → Domain to rename or attach a custom domain.
-5. Update the placeholder domain — see **Set your domain** below.
+## Project structure
 
-### Option B — GitHub Pages
-1. Install Git, then: `powershell -ExecutionPolicy Bypass -File scripts\git-init.ps1` (creates the repo + commit history).
-2. Create a GitHub repository and push to it.
-3. Repo → **Settings → Pages → Deploy from branch → `main` / root**.
-4. Your URL is `https://<user>.github.io/<repo>/`. Update the placeholder domain.
-
-## The three things you'll edit
-
-### 1) Set your domain
-✅ Done — the live domain is `https://youfoundakash.netlify.app/` and it's wired everywhere. If you ever move to a
-custom domain, find-and-replace `youfoundakash.netlify.app` (each spot is flagged with a `DOMAIN:` comment). Locations:
-- `index.html` — `canonical`, `og:url`, `og:image`, `twitter:image`, JSON-LD `url` + `image` (one comment block lists them)
-- `robots.txt` — the `Sitemap:` line
-- `sitemap.xml` — the `<loc>` value
-
-### 2) Your photo
-`assets/akash.jpg` already holds your photo (optimised to 560×560, used in the hero and the OG/social image). To
-change it, just overwrite that one file with a new roughly-square image (same filename).
-
-### 3) Fill in the real numbers
-See `CONTENT-TODO.md`. In `index.html`, search for the `ADD REAL …` HTML comments inside the ledger rows — that's
-exactly where true figures go. **Only ever enter true values.**
+```
+portfolio-site/
+├── index.html            # the site (single page)
+├── styles/
+│   ├── main.css          # layout + components
+│   └── tokens.css        # colour, type, and spacing tokens
+├── js/
+│   └── main.js           # reveals, counters, clock, copy-email (vanilla)
+├── assets/
+│   ├── akash.jpg         # hero / social photo
+│   ├── og-image.png      # Open Graph share image
+│   ├── favicon.*         # favicons + apple-touch-icon
+│   └── fonts/            # self-hosted woff2 + fonts.css
+├── scripts/              # PowerShell: serve, fetch-fonts, generate-assets, git-init
+├── robots.txt
+├── sitemap.xml
+└── site.webmanifest
+```
 
 ## Regenerating assets (optional)
-Both scripts render templates with headless Chrome/Edge — no Node/Python needed.
-- Fonts: `powershell -ExecutionPolicy Bypass -File scripts\fetch-fonts.ps1` (downloads Fraunces (roman + italic)
-  + IBM Plex Mono as latin woff2 into `assets/fonts/` — already committed).
-- OG image + favicons: `powershell -ExecutionPolicy Bypass -File scripts\generate-assets.ps1`
-  (sources in `scripts/asset-src/`; it never overwrites your real `akash.jpg`).
 
-## After you publish (grow it)
-- **LinkedIn:** add the URL to Featured, the Contact/website field, and your headline.
-- **GitHub:** put the URL in your profile bio.
-- **Email signature:** add the URL.
-- **Google Search Console:** add the property and submit `sitemap.xml`.
+PowerShell scripts render templates with headless Chrome/Edge — no Node or Python required:
 
-## Good-to-know
-- Built in an environment **without Git, Node, or Python**. `scripts/git-init.ps1` reconstructs the intended
-  milestone commit history once Git is installed; everything else is plain static files.
-- `reference.html` is the original prior version, kept only for provenance — not the live page (`index.html` is),
-  and disallowed in `robots.txt`. Delete it if you don't want it in the deploy.
-- No analytics, no cookies, no third-party calls. By design.
+- **Fonts:** `powershell -ExecutionPolicy Bypass -File scripts\fetch-fonts.ps1` — downloads the Fraunces and IBM Plex Mono `woff2` files into `assets/fonts/`.
+- **OG image + favicons:** `powershell -ExecutionPolicy Bypass -File scripts\generate-assets.ps1` — sources live in `scripts/asset-src/`; it never overwrites your real `akash.jpg`.
+
+## Notes
+
+- `reference.html`, `design-directions.html`, and `design-directions-2.html` are kept for provenance of the design exploration — they are not the live page (`index.html` is) and `reference.html` is disallowed in `robots.txt`.
+- `BUILD-PLAN.md` and `CONTENT-TODO.md` are development notes used while building the site.
+- The canonical domain is referenced in `index.html`, `robots.txt`, and `sitemap.xml`; each spot to change is flagged with a `DOMAIN:` comment.
+
+## Author
+
+Akash Kumar — operator, building toward project management ([@hrakashchauhan](https://github.com/hrakashchauhan))
